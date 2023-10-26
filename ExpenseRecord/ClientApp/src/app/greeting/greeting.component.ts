@@ -7,7 +7,10 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./greeting.component.css']
 })
 export class GreetingComponent implements OnInit {
-  name!: string;
+  description!: string;
+  type! : string;
+  amount! : string;
+  data! : string;
   greeting!: string;
 
   private baseUrl: string;
