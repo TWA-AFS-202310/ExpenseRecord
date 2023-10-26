@@ -1,16 +1,99 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Provide sufficient contrast against white background */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+/* font-family: 'Quicksand', sans-serif; */
+
+/* VARIABLES */
+:root {
+  --darkblue: #320c53;
+  --halfdarkblue: #6a2ac4;
+  --lila: #E475F1;
+  --yellow: #F3D24F;
+  --lightblue: #64A7D9;
+  --mintgreen: #88E7A1;
+  --quicksand: 'Quicksand', sans-serif;
+}
+
+/* NORMALIZE */
+*,
+body {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+button {
+  all: unset;
+}
+
 a {
-  color: #0366d6;
+  color: inherit;
+  text-decoration: none;
 }
 
-code {
-  color: #e01a76;
+/* BACKGROUND-COLOR */
+body {
+  background-color: var(--darkblue);
+  color: #FFFFFF;
+  font-family: var(--quicksand);
+  font-weight: 600;
+  font-size: 16px;
+  scrollbar-color: var(--yellow) white;
+  /* Only supported on Firefox */
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--darkblue);
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background-color: var(--yellow);
+  border-radius: 10px;
+  width: 6px;
+}
+
+
+/* BLUE BUTTONS */
+.blue-button {
+  background-color: var(--lightblue);
+  width: 250px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+}
+
+  .blue-button:disabled {
+    opacity: 0.5;
+  }
+
+  .blue-button:hover {
+    cursor: pointer;
+  }
+
+/* ANIMATION */
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+router-outlet + * {
+  display: block;
+  /* Change display inline to block */
+  animation: fade 0.3s;
+}
+
+ng-container {
+  animation: fade 0.3s;
 }

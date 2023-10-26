@@ -1,0 +1,24 @@
+<section *ngIf="historyList.length > 0; else emptyHistoryList">
+
+ 
+  <p>Expense record History:</p>
+  <ul *ngFor="let task of historyList.slice().reverse()">
+    <li>
+      <button (click)="setTaskUndone(task)">
+        <svg class="feather feather-check" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
+      </button>
+      {{task.category! | categoryEmoji}}
+      {{task.description}}
+    </li>
+  </ul>
+
+</section>
+
+<ng-template #emptyHistoryList>
+
+  <section class="empty-history">
+    <p>Your history is empty 😬</p>
+    <a class="blue-button" routerLink="/new-record">Create an expense record</a>
+  </section>
+
+</ng-template>
