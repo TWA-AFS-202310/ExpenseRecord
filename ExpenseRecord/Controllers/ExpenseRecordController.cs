@@ -17,23 +17,29 @@ public class ExpenseRecordController : ControllerBase
         _service = service;
     }
     [HttpGet]
-    public ActionResult GetAllExpenseRecords()
+    public async Task<ActionResult<List<ExpenseDto>>> GetAllExpenseRecords()
     {
-        List<ExpenseDto> expenseRecords = _service.GetExpenses();
+        List<ExpenseDto> expenseRecords = await _service.GetExpenses();
         return Ok(expenseRecords);
     }
 
     [HttpPost]
-    public ActionResult CreateExpenseRecord(ExpenseCreationDto expenseCreationDto) 
+    public async Task<ActionResult> CreateExpenseRecord(ExpenseCreationDto expenseCreationDto) 
     
     {
-            return Ok(expenseCreationDto);
+        await _service.CreateExpenseRecord(expenseCreationDto);
+        return Created("", expenseCreationDto);
 
     }
 
     [HttpDelete]
-    public ActionResult DeleteExpenseRecord(string id)
+    public async Task<ActionResult> DeleteExpenseRecord(string id)
     {
+        var success = await _service.DeleteExpenseRecord(id);
+        if (!success)
+        {
+            return NotFound($"The record with id {id} does not exist.");
+        }
         return NoContent();
     }
 }

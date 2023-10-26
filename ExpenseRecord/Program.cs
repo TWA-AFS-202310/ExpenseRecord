@@ -14,7 +14,7 @@ builder.Services.AddSingleton<IExpenseRecordService, ExpenseRecordService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "ToDoList API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Expense API", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header using the Bearer scheme. (Do NOT input Bearer)",

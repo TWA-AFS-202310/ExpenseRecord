@@ -5,8 +5,8 @@ namespace ExpenseRecord.Services
 {
     public interface IExpenseRecordService
     {
-        public void CreateExpenseRecode(ExpenseCreationDto expenseCreationDto);
-        public void DeleteExpenseRecode(string id);
-        public List<ExpenseDto> GetExpenses();
+        public Task CreateExpenseRecord(ExpenseCreationDto expenseCreationDto);
+        public Task<bool> DeleteExpenseRecord(string id);
+        public Task<List<ExpenseDto>> GetExpenses();
     }
 }

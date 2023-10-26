@@ -4,19 +4,29 @@ namespace ExpenseRecord.Services
 {
     public class ExpenseRecordService : IExpenseRecordService
     {
-        public void CreateExpenseRecode(ExpenseCreationDto expenseCreationDto)
+        private static readonly List<ExpenseDto> expenseDtos = new List<ExpenseDto>();
+        public Task CreateExpenseRecord(ExpenseCreationDto expenseCreationDto)
         {
-            throw new NotImplementedException();
+            ExpenseDto expenseDto = new ExpenseDto();
+            expenseDto.Description = expenseCreationDto.Description;
+            expenseDto.Type = expenseCreationDto.Type;
+            expenseDto.Amount = expenseCreationDto.Amount;
+            expenseDto.Date = expenseCreationDto.Date;
+            expenseDtos.Add(expenseDto);
+            return Task.CompletedTask;
         }
 
-        public void DeleteExpenseRecode(string id)
+        public Task<bool> DeleteExpenseRecord(string id)
         {
-            throw new NotImplementedException();
+            var result = expenseDtos.Find(x => x.Id == id);
+            if (result is null) { return Task.FromResult(false); }
+            expenseDtos.Remove(result);
+            return Task.FromResult(true);
         }
 
-        public List<ExpenseDto> GetExpenses()
+        public Task<List<ExpenseDto>> GetExpenses()
         {
-            throw new NotImplementedException();
+            return Task.FromResult(expenseDtos);
         }
     }
 }
