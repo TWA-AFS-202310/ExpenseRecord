@@ -15,4 +15,9 @@ export class ExpenseListComponent implements OnInit {
 
   ExpenseList = EXPENSES;
 
+  add() {
+    this.ExpenseList[0].Description = "kevin";
+    this.ExpenseList[1].Amount += 100;
+  }
+
 }

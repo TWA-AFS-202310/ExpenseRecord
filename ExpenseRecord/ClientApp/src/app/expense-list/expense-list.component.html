@@ -1,6 +1,26 @@
-<li *ngFor="let expense of ExpenseList">
-  <span class="text">description: {{expense.Description}}</span>
-  <span class="text">type: {{expense.Type}}</span>
-  <span class="text">amount: {{expense.Amount}}</span>
-  <span class="text">date: {{expense.Date}}</span>
-</li>
+<div>
+  <li *ngFor="let expense of ExpenseList">
+    <span class="text">description: {{expense.Description}}</span>
+    <span class="text">type: {{expense.Type}}</span>
+    <span class="text">amount: {{expense.Amount}}</span>
+    <span class="text">date: {{expense.Date}}</span>
+  </li>
+</div>
+
+<div>
+  <label>Description:</label>
+  <input>
+
+  <label>Type:</label>
+  <input>
+
+  <label>Amount:</label>
+  <input>
+
+  <label>Date:</label>
+  <input>
+</div>
+
+<div>
+  <button type="button" (click)="add()">button</button>
+</div>
