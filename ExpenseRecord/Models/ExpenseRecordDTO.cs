@@ -12,7 +12,6 @@ namespace ExpenseRecord.Models
         public string Description { get; set; } = string.Empty;
         public int Amount { get; set; }
         public string Type { get; set; } = string.Empty;
-        ]
         public string Time { get; set; } = string.Empty;
     }
 }
