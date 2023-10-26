@@ -31,7 +31,7 @@ public class GreetingController : ControllerBase
             Amount = expenseCreateRequest.Amount,
         };
 
-       _expenseService.CreateExpense(newExpenseRecord);
+        _expenseService.CreateExpense(newExpenseRecord);
         return Created("", newExpenseRecord);
     }
 
@@ -42,7 +42,7 @@ public class GreetingController : ControllerBase
         return Ok(result);
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public ActionResult DeleteAnExpense(string id)
     {
         _expenseService.DeleteAnExpense(id);

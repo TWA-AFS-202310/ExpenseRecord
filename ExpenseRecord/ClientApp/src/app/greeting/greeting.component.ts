@@ -1,34 +1,56 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
+import { ExpenseRecord } from './expense-record';
+import { ExpenseService } from '../expense-service';
 
 @Component({
   selector: 'app-greeting',
   templateUrl: './greeting.component.html',
   styleUrls: ['./greeting.component.css']
 })
+
 export class GreetingComponent implements OnInit {
   name!: string;
   greeting!: string;
 
-  private baseUrl: string;
-  private http: HttpClient;
+  public records?: ExpenseRecord[];
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    this.http = http;
-    this.baseUrl = baseUrl;
+  record: ExpenseRecord = { id: "default", description: "", createdTime: new Date(), amount: 100, type: "School" }
+
+  constructor(private expenseService: ExpenseService) {
+  
   }
 
   ngOnInit(): void {
+    console.log("This tes");
+    this.expenseService.getRecords().subscribe(records => {
+      this.records = records
+    })
   }
 
-  greet() {
-    this.callApi(this.name);
+  getDescription(event: any) {
+    this.record.description = event.target.value
   }
 
-  callApi(name: string) {
-    this.http.get<string>(this.baseUrl + 'greeting?name=' + name, {responseType: 'text' as 'json'})
-      .subscribe((result: string) => {
-        this.greeting = result;
-      }, (error: any) => console.error(error));
+  getAmount(event: any) {
+    this.record.amount = event.target.value
+  }
+
+  getType(event: any) {
+    this.record.type = event.target.value
+  }
+
+  addNewRecord() {
+    console.log("click add record")
+    this.expenseService.addRecord(this.record).subscribe();
+    this.expenseService.getRecords().subscribe(records => {
+      this.records = records
+    })
+  }
+
+  deleteRecord(id: string) {
+    console.log("click delete record" + id)
+    this.expenseService.deleteRecord(id).subscribe();
   }
 }
+

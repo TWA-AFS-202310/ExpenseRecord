@@ -6,6 +6,19 @@ public class ExpenseRepository : IExpenseRepository
 {
     private List<ExpenseRecord> expenseRecordList = new List<ExpenseRecord>();
 
+    public ExpenseRepository()
+    {
+        ExpenseRecord newRecord = new ExpenseRecord
+        {
+            Description = "test",
+            Amount = 100,
+            CreatedTime = DateTime.UtcNow,
+            Id = "123",
+            Type = "Res"
+        };
+        expenseRecordList.Add(newRecord);
+    }
+
     public void AddRecord(ExpenseRecord newRecord)
     {
         expenseRecordList.Add(newRecord);

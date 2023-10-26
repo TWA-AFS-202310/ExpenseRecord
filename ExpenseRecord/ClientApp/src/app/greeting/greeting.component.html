@@ -1,4 +1,17 @@
-<input type="text" [(ngModel)]="name">
-<button (click)="greet()">greet</button>
-<br>
-<label> {{greeting}} </label>
+<div class="records">
+  <div *ngFor="let record of records">
+    <a>{{record.description}}    </a>
+    <a>{{record.amount}}   </a>
+    <a>{{record.createdTime}}    </a>
+    <button class="add" (click)="deleteRecord(record.id)">Delete</button>
+  </div>
+
+  <div>
+    <input type="search" (input)="getDescription($event)" placeholder="description">
+    <input type="search" (input)="getAmount($event)" placeholder="amount">
+    <input type="search" (input)="getType($event)" placeholder="Type">
+  </div>
+
+  <button class="add" (click)="addNewRecord()">add</button>
+
+</div>
