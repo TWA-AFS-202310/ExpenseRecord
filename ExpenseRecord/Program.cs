@@ -1,9 +1,19 @@
+using ExpenseRecord.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+/*builder.Services.AddSwaggerGen();*/
 
+builder.Services.AddSingleton<IExpenseService, InMemoryExpenseService>();
+/*builder.Services.Configure<ToDoItemDatabaseSettings>(builder.Configuration.GetSection("ToDoItemDatabase"));
+*/
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,7 +33,8 @@ app.MapControllerRoute(
     pattern: "{controller}/{action=Index}/{id?}");
 
 app.MapFallbackToFile("index.html");
-;
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.Run();
 

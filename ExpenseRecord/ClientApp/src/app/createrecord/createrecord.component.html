@@ -1,0 +1,12 @@
+<div><a class="button" routerLink="/homepage">Back to List</a>
+</div>
+<!-- <label for="new-record">Item Description: </label>
+<input id="new-record" #recordName> -->
+<!-- <div><input type="checkbox"><input type="text" name="" placeholder="item-name"></div> -->
+<div><label>Record-description:</label><input type="text" [(ngModel)]="recorddes" placeholder="Record-description"></div>
+<div><label>Record-amount: </label><input type="text" [(ngModel)]="recordam" placeholder="Record-amount"></div>
+<div><label>Record-type: </label><input type="text" [(ngModel)]="recordtype" placeholder="Record-type"></div>
+<div><label>Record-time: </label><input type="text" [(ngModel)]="recordtime" placeholder="Record-time"></div>
+
+<!-- <div><button>Delete</button> <span>Created on </span> <button>Save</button></div> -->
+<div><button type="button" class="add-button" (click)="add()">Add</button></div>

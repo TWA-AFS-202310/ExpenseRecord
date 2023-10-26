@@ -1,0 +1,15 @@
+<ul class ="items">
+    <li *ngFor="let item of recordlist" style="list-style-type:none" >
+        <!-- {{item.description}} -->
+        <button [class.selected]="item===selectedItem" type="button" (click)="onSelect(item) ">
+            <!-- <a routerLink="/item-detail"></a> -->
+            <!-- <div><input type="checkbox">{{item.name}}</div> -->
+            <div>
+                <a routerLink="/detail/{{item.id}}">{{item.description}}</a>
+                <!-- {{item.description}} -->
+            </div>
+            
+        </button>
+    </li>
+</ul>
+<!-- <app-item-detail [item]="selectedItem"></app-item-detail> -->

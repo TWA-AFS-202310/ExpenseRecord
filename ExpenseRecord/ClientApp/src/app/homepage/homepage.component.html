@@ -1,0 +1,7 @@
+<!-- <p>homepage works!</p> -->
+<h1>Expense Record System</h1>
+<span>
+    <app-search (itemevent)="searchitem($event)" [fromParent]="inputmessage"></app-search>
+</span>
+<app-records [recordlist]="recordlist"></app-records>
+<div><a class="button" routerLink="/createrecord"><button>Create Record</button></a></div>

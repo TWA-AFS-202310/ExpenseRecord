@@ -1,0 +1,24 @@
+<div *ngIf="record">
+  <div><span>id: </span>{{record.id}}</div>
+  <div>
+    <label for="item-description">Record Description: {{recorddescription}}</label>
+    <!-- <input id="Item-Description" [(ngModel)]="recorddescription" > -->
+  </div>
+  <div>
+    <label>Record type: {{recordtype}}</label>
+    <!-- <input id="Item-Isstar" [(ngModel)]="recordtype" > -->
+  </div>
+  <div>
+    <label>Record Amount:  {{recordamount}}</label>
+    <!-- <input id="Item-Isdone" [(ngModel)]="recordamount" > -->
+  </div>
+  <div>
+    <label>Record Time:  {{recordtime}}</label>
+    <!-- <input id="Item-createdtime" [(ngModel)]="recordtime" > -->
+  </div>
+  <!-- <button type="button" class="delete" title="delete item" (click)="delete(item)">x</button> -->
+  <!-- <button (click)="SaveChange(item)">Save</button> -->
+</div>
+<!-- <button type="button" (click)="save()">Save</button> -->
+<!-- <button type="button" (click)="goBack()">go back</button> -->
+<button type="button" (click)="delete()">delete</button>
