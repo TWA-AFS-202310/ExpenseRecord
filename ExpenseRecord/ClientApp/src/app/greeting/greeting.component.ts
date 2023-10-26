@@ -15,7 +15,7 @@ export class GreetingComponent implements OnInit {
 
   public records?: ExpenseRecord[];
 
-  record: ExpenseRecord = { id: "default", description: "This is a default record", createdTime: new Date(), amount: 100, type: "School" }
+  record: ExpenseRecord = { id: "default", description: "This is a default", createdTime: new Date(), amount: 100, type: "School" }
 
   constructor(private expenseService: ExpenseService) {
   
@@ -44,7 +44,7 @@ export class GreetingComponent implements OnInit {
     console.log("click add record")
     this.expenseService.addRecord(this.record).subscribe(() => location.reload());
     this.expenseService.getRecords().subscribe(records => {
-      this.records = records
+      this.records = records;
     })
   }
 
