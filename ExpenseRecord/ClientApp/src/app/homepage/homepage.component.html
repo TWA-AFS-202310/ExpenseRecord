@@ -1,0 +1,7 @@
+<h1>Expense Record</h1>
+<app-add-record></app-add-record>
+<br>
+<br>
+<br>
+<br>
+<app-records-list [records]="recordSubjector" (deleteEvent)="deleteRecord($event)"></app-records-list>
