@@ -5,6 +5,7 @@ import { ExpenseRecordRoutingModule } from './expense-record-routing.module';
 import { ExpenseRecordComponent } from './expense-record.component';
 import { ConvertEnumToStringPipe, RecordTableComponent } from './record-table/record-table.component';
 import { RecordCreateComponent } from './record-create/record-create.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { RecordCreateComponent } from './record-create/record-create.component';
   ],
   imports: [
     CommonModule,
-    ExpenseRecordRoutingModule
+    ExpenseRecordRoutingModule,
+    FormsModule
   ]
 })
 export class ExpenseRecordModule { }

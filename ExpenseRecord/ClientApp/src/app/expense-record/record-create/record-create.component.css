@@ -1,0 +1,93 @@
+.todo-item{
+    background-color: white;
+
+    padding: 10px 10px 10px 10px;
+
+    margin: 0 20%;
+
+    border-collapse: collapse;
+    --height: 400px;
+    height: var(--height);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    color: #7a7878;
+    
+}
+.add-item{
+    margin: -25px 20% 0px 20%;
+    height: 100px;
+    text-align: center;
+  }
+.add-item button{
+
+    padding: 10px 40px;
+    border-style: none;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #a97ce8;
+    text-align: center;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s linear;
+    vertical-align: middle;
+  }
+  
+  .add-item button:hover {
+    background-color:#8b6cb6;
+    border-radius: 0;
+    border-radius: 30px; 
+  }
+  
+  .add-item button::after{
+    content: '';
+    background: #8b6cb6;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: -1;  
+    border-radius: 30px;  
+  }
+  .add-item .go-back{
+    /* margin-left: -100%; */
+    padding: 10px 20px;
+    
+  }
+  svg{
+    height: 100%;
+    width: auto;
+    vertical-align: baseline
+  }
+  .create-time{
+    /* margin-top: calc(var(--height) * 0.7); */
+    text-align: center;
+  }
+  .description{
+    padding: 10px 20px;
+    font-family: 'Comic Sans MS';
+    font-size: larger;
+    font-style: italic;
+    width: 100%;
+    display: table;
+    height: calc(var(--height) * 0.8);
+  }
+
+  .description span{
+    vertical-align: middle;
+    display: table-cell;
+    text-align: center;
+    margin: 50% 0;
+    
+  }
+
+  .description span input{
+    text-align: center;
+    color: inherit;
+    
+  }
+
+
+
+  

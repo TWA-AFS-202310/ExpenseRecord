@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { RecordTableComponent } from './expense-record/record-table/record-table.component';
 import { ExpenseRecordComponent } from './expense-record/expense-record.component';
+import { RecordCreateComponent } from './expense-record/record-create/record-create.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,11 @@ const routes: Routes = [
    {
      path: '', 
      component: RecordTableComponent,
-   }
+   },
+   {
+    path: 'create',
+    component: RecordCreateComponent,
+  }
  ],
  },
  
