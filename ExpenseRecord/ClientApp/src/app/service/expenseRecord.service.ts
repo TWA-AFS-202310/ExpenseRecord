@@ -26,7 +26,7 @@ export class ExpenseRecordService{
   insertRecords(record:Records){
     return this.http.post<Records>(this.baseUrl,record);
   }
-  deleteRecords(id:number){
+  deleteRecords(id:string){
     return this.http.delete<Records>(this.baseUrl+'/'+id);
   }
 

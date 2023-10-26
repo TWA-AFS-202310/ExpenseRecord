@@ -1,32 +1,49 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpenseRecordService } from '../service/expenseRecord.service';
 import { Records } from '../records';
+import { MatTableDataSource} from '@angular/material';
+
 //import {MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit {
 
   constructor(private expenseService:ExpenseRecordService){}
   public records?:Records[];
+  public inputReocrd:Records = {id:"1",amount:32,time:"111",description:"ss",type:"d"};
 
   ngOnInit(): void {
     this.expenseService.getAllRecords().subscribe(recordList =>{
-      this.records = recordList;
+      this.records = [{id:"1",amount:32,time:"111",description:"ss",type:"d"},{id:"1",amount:32,time:"111",description:"ss",type:"d"}];
     });
   }
 
-  addRecord(record:Records){
-    this.expenseService.insertRecords(record).subscribe();
+  addRecord(){
+    console.log("heelo",this.inputReocrd)
+    this.expenseService.insertRecords(this.inputReocrd).subscribe();
   }
 
-  deleteRecord(id:number){
+  deleteRecord(id:string){
     this.expenseService.deleteRecords(id).subscribe();
   }
 
+  moniterAmount(event:any){
+    this.inputReocrd.amount = event.target.value;
+  }
 
+  moniterTime(event:any){
+    this.inputReocrd.time = event.target.value;
+  }
 
+  moniterDes(event:any){
+    this.inputReocrd.description = event.target.value;
+  }
+  moniterType(event:any){
+    this.inputReocrd.type = event.target.value;
+  }
 }
+
