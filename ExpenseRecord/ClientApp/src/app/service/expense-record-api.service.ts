@@ -8,7 +8,7 @@ export class ExpenseRecordApiService {
   private http: HttpClient;
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.http = http;
-    this.baseUrl = baseUrl + 'api/v1/expenserecords';
+    this.baseUrl = baseUrl + 'api/v1/expenserecords/';
   }
   getAllItems$(): Observable<ExpenseRecord[]> {
     return this.http.get<ExpenseRecord[]>(this.baseUrl);
@@ -17,6 +17,6 @@ export class ExpenseRecordApiService {
     return this.http.post<NewExpenseRecord>(this.baseUrl, newItem)
   }
   deleteItem$(id: string): Observable<any>{
-    return this.http.post<NewExpenseRecord>(this.baseUrl, id)
+    return this.http.delete<NewExpenseRecord>(this.baseUrl+ id)
   }
 }

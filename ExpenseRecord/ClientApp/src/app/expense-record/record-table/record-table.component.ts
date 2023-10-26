@@ -30,8 +30,7 @@ export class RecordTableComponent {
   ){
 
   }
-
-  ngOnInit(): void {
+  getAllItems(){
     this.apiService.getAllItems$().subscribe(
       (res) => {
         this.recordList = res;
@@ -39,9 +38,16 @@ export class RecordTableComponent {
       }
     )
   }
-  onDelete(item: ExpenseRecord){
+  ngOnInit(): void {
+    this.getAllItems();
+  }
+  onDelete(id: string){
     if (window.confirm("Do you really want to delete this?")){
-
+      this.apiService.deleteItem$(id).subscribe(
+        (res) => {
+          this.getAllItems();
+        }
+      )
   }
 }
 }

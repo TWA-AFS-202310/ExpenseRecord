@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ExpenseType } from 'src/app/model/expense-record';
 import { ExpenseRecordApiService } from 'src/app/service/expense-record-api.service';
 
@@ -14,8 +15,10 @@ export class RecordCreateComponent implements OnInit {
   public amount: number = 0;
   public typeKeys = Object.keys(ExpenseType).filter((v) => isNaN(Number(v))) ;
   public typeValues = ExpenseType ;
+  
   constructor(
-    private apiService: ExpenseRecordApiService
+    private apiService: ExpenseRecordApiService,
+    private router: Router
   ) { 
 
   }
@@ -24,6 +27,9 @@ export class RecordCreateComponent implements OnInit {
   }
   onSelected(value: string): void {
     console.log("change to type:" ,value);
+    const indexOfS = Object.values(ExpenseType).indexOf(value as unknown as ExpenseType);
+    this.type = indexOfS;
+
 	}
 
   onCreateItem(){
@@ -35,11 +41,9 @@ export class RecordCreateComponent implements OnInit {
         amount: this.amount
       }
     ).subscribe(
-
+      () => this.router.navigateByUrl('table')
     );
   }
-  onInputDate(){
-    // this.datePipe.transform(this.date, 'yyyy-mm-ddThh:mm:ss.SSSZZZZZ');
-  }
+
 
 }
