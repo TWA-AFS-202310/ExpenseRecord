@@ -36,19 +36,19 @@ namespace ExpenseRecord.Service
             return newItem;
         }
 
-        public Task<DeleteResult> DeleteToDoItemAsync(string id)
+        public async Task<DeleteResult> DeleteToDoItemAsync(string id)
         {
-            throw new NotImplementedException();
+            return await _collection.DeleteManyAsync(doc => doc.Id != null);
         }
 
-        public Task<List<ExpenseRecordDto>> GetAllToDoItemAsync()
+        public async Task<List<ExpenseRecordDto>> GetAllToDoItemAsync()
         {
-            throw new NotImplementedException();
+            return await _collection.Find(doc => doc.Id != null).ToListAsync();
         }
 
-        public Task<ExpenseRecordDto> GetToDoItemByIdAsync(string id)
+        public async Task<ExpenseRecordDto> GetToDoItemByIdAsync(string id)
         {
-            throw new NotImplementedException();
+            return await _collection.Find(doc => doc.Id == id).FirstOrDefaultAsync();
         }
     }
 }
