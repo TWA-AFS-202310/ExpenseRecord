@@ -33,6 +33,7 @@ namespace ExpenseRecord.Controllers
         {
             var toDoItemDto = new ExpenseItem
             {
+                Id  = Guid.NewGuid().ToString(),
                 Description = toDoItemCreateRequest.Description,
                 Type = toDoItemCreateRequest.Type,
                 Amount = toDoItemCreateRequest.Amount,

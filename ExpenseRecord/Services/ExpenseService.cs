@@ -33,6 +33,7 @@ namespace ExpenseRecord.Services
             {
                 expenseItemDtos.Add(new ExpenseItem
                 {
+                    Id = expenseItems[i].Id,
                     Description = expenseItems[i].Description,
                     Type = expenseItems[i].Type,
                     Amount = expenseItems[i].Amount,

@@ -23,6 +23,7 @@ export class ExpenseComponent implements OnInit {
   existingRecords : IExpenseItem[] = [];
   ngOnInit(): void {
   this.getAll();
+
   }
 
   
@@ -63,7 +64,9 @@ export class ExpenseComponent implements OnInit {
   }
   
   deleteItems(id: string){
-    this.itemservice.deleteExpense(id).subscribe()
+    this.itemservice.deleteExpense(id).subscribe(()=>{
+      this.getAll()
+    })
   }
 }
 
