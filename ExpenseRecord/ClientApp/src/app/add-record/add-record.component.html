@@ -1,0 +1,15 @@
+<table border="1" width="100%">
+    <tr>
+        <td>Description</td>
+        <td>Type</td>
+        <td>Amount</td>
+        <td>Date</td>
+    </tr>
+    <tr>
+        <td><input type="text" [(ngModel)]="description"></td>
+        <td><input type="text" [(ngModel)]="type"></td>
+        <td><input type="text" [(ngModel)]="amount"></td>
+        <td><input type="text" [(ngModel)]="date"></td>
+        <td><button (click)="saveNewRecord()">add</button></td>
+    </tr>
+</table>
