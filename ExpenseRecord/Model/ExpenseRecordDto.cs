@@ -2,9 +2,9 @@
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 
-namespace ExpenseRecord.Model
-{
-    public class ExpenseRecord
+namespace ExpenseRecord.Model;
+
+    public class ExpenseRecordDto
     {
         [JsonProperty(PropertyName = "_id")]
         [BsonId]
@@ -22,8 +22,8 @@ namespace ExpenseRecord.Model
         public ExpenseType Type { get; set; }
 
         [BsonElement("amount")]
-        public double amount { get; set; }
+        public double Amount { get; set; }
 
 
     }
-}
+

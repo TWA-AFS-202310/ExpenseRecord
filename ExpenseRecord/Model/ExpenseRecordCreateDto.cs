@@ -17,6 +17,6 @@ namespace ExpenseRecord.Model
         public ExpenseType Type { get; set; }
 
         [BsonElement("amount")]
-        public double amount { get; set; }
+        public double Amount { get; set; }
     }
 }
