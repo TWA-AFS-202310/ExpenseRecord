@@ -7,12 +7,18 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import {GreetingComponent} from "./greeting/greeting.component";
+import { ExpenseComponent } from './expense/expense.component';
+// import { ExpenseListComponent } from './expense-list/expense-list.component';
+// import { ExpenseFormComponent } from './expense-form/expense-form.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         CounterComponent,
-        GreetingComponent
+        GreetingComponent,
+        ExpenseComponent,
+        // ExpenseListComponent,
+        // ExpenseFormComponent
     ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
