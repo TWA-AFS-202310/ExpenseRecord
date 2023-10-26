@@ -4,9 +4,9 @@
     <div>
       <input [(ngModel)]="newExpense.description" placeholder="Description" />
       <input [(ngModel)]="newExpense.type" placeholder="Type" />
-      <input [(ngModel)]="newExpense.amount" placeholder="Amount" type="number" />
+      <input [(ngModel)]="newExpense.amount" placeholder="Amount" />
       <input [(ngModel)]="newExpense.date" placeholder="Date (YYYYMMDD)" />
-      <button (click)="addExpense(newExpense)">Add</button>
+      <button (click)="addExpense()">Add</button>
     </div>
   
     <h2>Expenses</h2>

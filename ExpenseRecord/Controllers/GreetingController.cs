@@ -21,11 +21,11 @@ public class GreetingController : ControllerBase
         }
 
         [HttpPost]
-        public IActionResult Post(Record newExpense)
+        public Record Post([FromBody]Record newExpense)
         {   Console.WriteLine("jinru");
             newExpense.id = _nextId++;
             _expenses.Insert(0, newExpense);
-            return Ok();
+            return newExpense;
         }
 
         [HttpDelete("{id}")]

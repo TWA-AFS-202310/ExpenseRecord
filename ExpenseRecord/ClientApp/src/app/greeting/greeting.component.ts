@@ -34,19 +34,16 @@ export class GreetingComponent implements OnInit {
         this.expenses = result;
     });
   }
-  addExpense( newExpense : Record) {
+  addExpense() {
     if (this.newExpense.description && this.newExpense.type && this.newExpense.amount && this.newExpense.date) {
-        // newExpense = this.newExpense;
-      this.http.post(this.baseUrl + 'greeting', newExpense).subscribe(() => {
+      this.http.post<Record>(this.baseUrl + 'greeting', this.newExpense )
+      .subscribe((result: Record)=> {
+      console.log(result)
         
         this.loadExpenses();
       });
       
-     // this.http.post<Record>(this.baseUrl + 'greeting', item, { responseType: 'text' as 'json' })
-      //     .subscribe((result: Record) => {
-      //       this.items = result;
-      //     }, (error: any) => console.error(error));
-      // }
+   
     }
   }
     deleteExpense(Id: number) {
