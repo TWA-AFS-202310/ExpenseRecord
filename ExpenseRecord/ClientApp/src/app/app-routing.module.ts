@@ -9,7 +9,7 @@ import { TaskModificationComponent } from './pages/task-modification/task-modifi
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "new-task", component: TaskCreationComponent },
+  { path: "new-record", component: TaskCreationComponent },
   { path: "update-task/:id", component: TaskModificationComponent },
   { path: "history", component: HistoryComponent }
 ];

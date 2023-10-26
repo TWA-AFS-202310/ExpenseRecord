@@ -7,7 +7,7 @@
     <!-- Urgent task -->
     <p *ngIf="this.urgentTaskExists">⚠️ Urgent</p>
     <ul>
-      <ng-container *ngFor="let task of todoList">
+      <ng-container *ngFor="let task of todoList.slice().reverse()">
         <li *ngIf="task.isUrgent">
           <button class="empty-checkbox" (click)="setTaskAsDone(task)"><svg class="feather feather-check" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg></button>
           <a routerLink="/update-task/{{task.id}}">
@@ -21,7 +21,7 @@
     <!-- No-urgent task -->
     <p *ngIf="this.nonUrgentTaskExists">🌸 Others</p>
     <ul>
-      <ng-container *ngFor="let task of todoList">
+      <ng-container *ngFor="let task of todoList.slice().reverse()">
         <li *ngIf="!task.isUrgent">
           <button class="empty-checkbox" (click)="setTaskAsDone(task)"><svg class="feather feather-check" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg></button>
           <a routerLink="/update-task/{{task.id}}">
@@ -37,8 +37,8 @@
   <ng-template #emptyToDoList>
 
     <div class="empty-home">
-      <p>No tasks at the moment 🙌</p>
-      <a class="blue-button" routerLink="/new-task">Create a task</a>
+      <p>No expense records at the moment 🙌</p>
+      <a class="blue-button" routerLink="/new-record">Create an expense record</a>
     </div>
 
   </ng-template>

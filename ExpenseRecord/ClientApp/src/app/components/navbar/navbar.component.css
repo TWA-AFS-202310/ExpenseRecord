@@ -30,7 +30,7 @@ a {
   background-color: var(--mintgreen);
 }
 
-.new-task-svg {
+.new-record-svg {
   fill: none;
   stroke: white;
   stroke-linecap: round;
@@ -39,7 +39,7 @@ a {
   width: 35px;
 }
 
-.new-task-svg-active, .new-task-btn:hover {
+.new-record-svg-active, .new-record-btn:hover {
   background-color: var(--yellow);
   transition: all 0.2s;
 }

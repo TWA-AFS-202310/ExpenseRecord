@@ -26,7 +26,7 @@ export class TaskService {
   updateUser(task: Task): Observable<Task> {
     return this.httpClient.put<Task>(this.apiURL + task.id, JSON.stringify(task), this.httpOptions).pipe(catchError(this.errorHandler))
   }
-  removeUser(id: number) {
+  removeTask(id: number) {
     return this.httpClient.delete<Task>(this.apiURL + id, this.httpOptions).pipe(catchError(this.errorHandler));
   }
   errorHandler(error: {
@@ -80,10 +80,10 @@ export class TaskService {
 
     let index: number;
     taskToFind ? index = toDoList?.indexOf(taskToFind) : index = -1;
-
-    toDoList.splice(index, 1);
+    this.removeTask(index);
+    //toDoList.splice(index, 1);
     this.saveToDos(toDoList);
-
+    
   }
 
   /* 

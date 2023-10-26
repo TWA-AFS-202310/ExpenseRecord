@@ -41,8 +41,9 @@ export class TaskModificationComponent {
     this.route.navigate([""]);
   }
 
-  delateTask() {
+  deleteTask() {
     this.taskService.deleteFromList(this.currentTask!);
     this.route.navigate([""]);
+
   }
 }

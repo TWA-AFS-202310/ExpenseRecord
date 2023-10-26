@@ -1,7 +1,7 @@
 <section *ngIf="historyList.length > 0; else emptyHistoryList">
 
-  <!-- Toutes les tâches -->
-  <p>Task History:</p>
+ 
+  <p>Expense record History:</p>
   <ul *ngFor="let task of historyList.slice().reverse()">
     <li>
       <button (click)="setTaskUndone(task)">
@@ -18,7 +18,7 @@
 
   <section class="empty-history">
     <p>Your history is empty 😬</p>
-    <a class="blue-button" routerLink="/new-task">Create a task</a>
+    <a class="blue-button" routerLink="/new-record">Create an expense record</a>
   </section>
 
 </ng-template>
