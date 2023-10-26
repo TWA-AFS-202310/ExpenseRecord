@@ -1,0 +1,8 @@
+
+<br>
+<div class="items" *ngFor="let item of ITEMS">
+    <span>{{item.description}}  {{item.type}}  {{item.cost}}  {{item.date}}  {{item.id}}
+    </span>
+    <button [id]="item.id" (click)="Delete($event)">Delete</button>
+
+    </div>
