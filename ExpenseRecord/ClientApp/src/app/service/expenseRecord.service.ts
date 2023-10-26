@@ -15,7 +15,7 @@ export class ExpenseRecordService{
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.http = http;
-    this.baseUrl = baseUrl;
+    this.baseUrl = baseUrl + "/greeting";
   }
 
 
@@ -26,7 +26,7 @@ export class ExpenseRecordService{
   insertRecords(record:Records){
     return this.http.post<Records>(this.baseUrl,record);
   }
-  deleteRecords(id:string){
+  deleteRecords(id:number){
     return this.http.delete<Records>(this.baseUrl+'/'+id);
   }
 
