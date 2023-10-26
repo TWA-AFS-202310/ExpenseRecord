@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpenseRecordService } from '../service/expenseRecord.service';
 import { Records } from '../records';
-import { ActivatedRoute, Router } from '@angular/router';
 
 //import {MatTableDataSource} from '@angular/material';
 
@@ -12,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TableComponent implements OnInit {
 
-  constructor(private router: Router, private expenseService:ExpenseRecordService){}
+  constructor( private expenseService:ExpenseRecordService){}
   public records?:Records[] =  [{id:"1",amount:32,time:"111",description:"ss",type:"d"},{id:"1",amount:32,time:"111",description:"ss",type:"d"}];
   public inputReocrd:Records = {id:"1",amount:32,time:"111",description:"ss",type:"d"};
   public counter:number = 0;
@@ -34,7 +33,6 @@ export class TableComponent implements OnInit {
 
   deleteRecord(id:string){
     this.expenseService.deleteRecords(id).subscribe(()=> location.reload());
-
   }
 
   moniterAmount(event:any){
