@@ -29,6 +29,13 @@
     text-align: center;
     color:rgba(3, 41, 81, 1);
 }
+.label{
+    border: 2px, solid rgba(3, 41, 81, 0.5);
+    font-size: medium;
+    float: right; 
+}
+
+
 .container{
     height: 80%;
     line-height: 3;

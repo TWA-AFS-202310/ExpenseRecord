@@ -4,8 +4,7 @@
 
     <div class="container">
         <div> 
-        <input class = "input"  [(ngModel)]='Description' [ngModelOptions]="{standalone: true}"><br>
-        {{Description}}
+            <label class = " label">Description</label><input class = "input"  [(ngModel)]='Description' [ngModelOptions]="{standalone: true}"><br>
         </div>
         <div> 
             <label for="expenseType">Expense Type:</label>
@@ -16,8 +15,7 @@
             </select>
         </div>
         <div> 
-            <input class = "input" [(ngModel)]='Amount' [ngModelOptions]="{standalone: true}"><br>
-            {{Amount}}
+            <label>Amount</label><input class = "input" [(ngModel)]='Amount' [ngModelOptions]="{standalone: true}"><br>
         </div>
     </div>
 
