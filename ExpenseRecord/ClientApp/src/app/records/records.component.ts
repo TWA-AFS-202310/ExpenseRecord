@@ -20,10 +20,10 @@ export class RecordsComponent implements OnInit {
 }
 deleteTodo(description:string) {
   // Remove From UI
-  this.todoService.deleteTodo(description).subscribe();
+  this.todoService.deleteTodo(description).subscribe(  ()=>location.reload());
   // this.todos = this.todos.filter(t => t.description !== description);
   //Remove from server
-  location.reload();
+
 
 }
 }

@@ -1,8 +1,29 @@
 <app-greeting></app-greeting>
-<li *ngFor="let item of todos;let key=index;">
+<!-- <li *ngFor="let item of todos;let key=index;">
     <span>description:{{item.description}}</span>
     <span>kind:{{item.kind}}</span>
     <span>amount:{{item.amount}}</span>
     <span>time:{{item.time}}</span>
-    <button (click)="deleteTodo(item.description)"></button>
-  </li>
+    <button class="button-9" (click)="deleteTodo(item.description)">DELETE</button>
+  </li> -->
+
+  <table>
+    <thead>
+        <tr>
+            <th>description</th>
+            <th>kind</th>
+            <th>amount</th>
+            <th>time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of todos;">
+            <td>{{item.description}}</td>
+            <td>{{item.kind}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.time}}</td>
+            <td> <button class="button-9" (click)="deleteTodo(item.description)">DELETE</button>
+            </td>
+        </tr>
+    </tbody>
+  </table>

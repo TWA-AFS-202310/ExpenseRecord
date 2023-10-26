@@ -24,7 +24,9 @@ namespace ExpenseRecord.Service
         }
 
         public async Task CreateAsync(Models.ExpenseRecord record)
+
         {
+            record.Time = record.Time.Replace("-", string.Empty);
             await _ToDoItemsCollection.InsertOneAsync(record);
         }
 

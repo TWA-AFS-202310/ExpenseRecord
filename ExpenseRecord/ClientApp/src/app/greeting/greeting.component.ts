@@ -46,9 +46,9 @@ OnInit() {
       amount: this.amount
     }
     this.service.addTodo(record).subscribe(
+      ()=>location.reload()
 
     );
-    location.reload()
     
     // this.addTodo.emit(record);
   }
