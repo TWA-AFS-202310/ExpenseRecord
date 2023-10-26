@@ -12,18 +12,18 @@ namespace ExpenseRecord.Service
 
 
         public ExpenseRecordService(
-                IOptions<DatabaseSettings> ToDoItemStoreDatabaseSettings)
+                IOptions<DatabaseSettings> ExpenseRecordStoreDatabaseSettings)
         {
             var mongoClient = new MongoClient(
-                ToDoItemStoreDatabaseSettings.Value.ConnectionString);
+                ExpenseRecordStoreDatabaseSettings.Value.ConnectionString);
 
             var mongoDatabase = mongoClient.GetDatabase(
-                ToDoItemStoreDatabaseSettings.Value.DatabaseName);
+                ExpenseRecordStoreDatabaseSettings.Value.DatabaseName);
 
             _collection = mongoDatabase.GetCollection<ExpenseRecordDto>(
-                ToDoItemStoreDatabaseSettings.Value.CollectionName);
+                ExpenseRecordStoreDatabaseSettings.Value.CollectionName);
         }
-        public async Task<ExpenseRecordDto> CreateToDoItemAsync(ExpenseRecordCreateDto expenseRecordCreateDto)
+        public async Task<ExpenseRecordDto> CreateExpenseRecordAsync(ExpenseRecordCreateDto expenseRecordCreateDto)
         {
             var newItem = new ExpenseRecordDto
             {
@@ -36,17 +36,17 @@ namespace ExpenseRecord.Service
             return newItem;
         }
 
-        public async Task<DeleteResult> DeleteToDoItemAsync(string id)
+        public async Task<DeleteResult> DeleteExpenseRecordByIdAsync(string id)
         {
-            return await _collection.DeleteManyAsync(doc => doc.Id != null);
+            return await _collection.DeleteOneAsync(doc => doc.Id == id);
         }
 
-        public async Task<List<ExpenseRecordDto>> GetAllToDoItemAsync()
+        public async Task<List<ExpenseRecordDto>> GetAllExpenseRecordAsync()
         {
             return await _collection.Find(doc => doc.Id != null).ToListAsync();
         }
 
-        public async Task<ExpenseRecordDto> GetToDoItemByIdAsync(string id)
+        public async Task<ExpenseRecordDto> GetExpenseRecordByIdAsync(string id)
         {
             return await _collection.Find(doc => doc.Id == id).FirstOrDefaultAsync();
         }

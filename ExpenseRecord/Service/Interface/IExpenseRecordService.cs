@@ -5,9 +5,9 @@ namespace ExpenseRecord.Service.Interface;
 
     public interface IExpenseRecordService
     {
-        Task<ExpenseRecordDto> CreateToDoItemAsync(ExpenseRecordCreateDto todoItemRequestDto);
-        Task<DeleteResult> DeleteToDoItemAsync(string id);
-        Task<ExpenseRecordDto> GetToDoItemByIdAsync(string id);
-        Task<List<ExpenseRecordDto>> GetAllToDoItemAsync();
+        Task<ExpenseRecordDto> CreateExpenseRecordAsync(ExpenseRecordCreateDto todoItemRequestDto);
+        Task<DeleteResult> DeleteExpenseRecordByIdAsync(string id);
+        Task<ExpenseRecordDto> GetExpenseRecordByIdAsync(string id);
+        Task<List<ExpenseRecordDto>> GetAllExpenseRecordAsync();
     }
 
