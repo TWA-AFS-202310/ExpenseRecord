@@ -1,0 +1,100 @@
+
+
+h1{
+    text-align: center;
+}
+
+
+
+
+.save-button{
+    padding: 3% 1%
+    
+}
+span{
+    width: 30%;
+    margin: 8px;
+}
+.add-item button{
+    
+    padding: 10px 40px;
+    border-style: none;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #a97ce8;
+    text-align: center;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s linear;
+}
+
+.add-item button:hover {
+    background-color:#8b6cb6;
+    border-radius: 0;
+    /* scale: 1.1; */
+    border-radius: 30px; 
+}
+
+.add-item button::after{
+    content: '';
+    background: #8b6cb6;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: -1;  
+    border-radius: 30px;  
+}
+.tool-bar{
+    background-color: #a97ce8;
+    color: white;
+    margin: 3% 20%;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    --main-width: 60%
+}
+
+.add-item{
+    margin: -25px auto 0px auto;
+    width: 300px;
+    height: 100px;
+    
+}
+
+.list-button{
+    background-color: #a97ce8;
+    border-radius: 3px;
+    color: white;
+    border-style: none;
+    height: 40px;
+    
+    
+}
+.list-button :hover{
+    /* background-color: #a97ce8ae; */
+    background-color: #8b6cb6;
+    border-collapse: collapse;
+    border-radius: 3px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.list-button ::after{
+    background-color: #8b6cb6;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+svg{
+    height: 100%;
+    width: auto;
+    vertical-align: baseline
+}
+
+.tool-bar-head{
+    padding-left: calc((var(--main-width) )/ 2);
+}

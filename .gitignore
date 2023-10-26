@@ -4,3 +4,8 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 .idea/
+/.vs/ExpenseRecord/FileContentIndex
+*.wsuo
+/.vs/ExpenseRecord
+/ExpenseRecord/ClientApp/
+/ExpenseRecord/ClientApp/package-lock.json
