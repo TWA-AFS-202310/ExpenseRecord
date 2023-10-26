@@ -1,3 +1,5 @@
+using ExpenseRecord.Service;
+using ExpenseRecord.Service.Interface;
 using ExpenseRecord.Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("ToDoItemDatabase"));
+builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("ExpenseRecordDatabase"));
+
+builder.Services.AddSingleton<IExpenseRecordService, ExpenseRecordService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
