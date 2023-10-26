@@ -17,16 +17,16 @@ namespace ExpenseRecord.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ExpenseRecordDto>> CreateToDoItemAsync(ExpenseRecordCreateDto expenseRecordCreateDto)
+        public async Task<ActionResult<ExpenseRecordDto>> CreateExpenseRecordAsync(ExpenseRecordCreateDto expenseRecordCreateDto)
         {
-            var result = await _service.CreateToDoItemAsync(expenseRecordCreateDto);
+            var result = await _service.CreateExpenseRecordAsync(expenseRecordCreateDto);
             return Created("Successfully create a new item.", result);
         }
 
-        [HttpDelete]
-        public async Task<ActionResult> DeleteToDoItemAsync(string id)
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteExpenseRecordByIdAsync(string id)
         {
-            var result = await _service.DeleteToDoItemAsync(id);
+            var result = await _service.DeleteExpenseRecordByIdAsync(id);
             switch (result.DeletedCount)
             {
                 case 0:
@@ -40,9 +40,9 @@ namespace ExpenseRecord.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ExpenseRecordDto>> GetToDoItemByIdAsync(string id)
+        public async Task<ActionResult<ExpenseRecordDto>> GetExpenseRecordByIdAsync(string id)
         {
-            var result = await _service.GetToDoItemByIdAsync(id);
+            var result = await _service.GetExpenseRecordByIdAsync(id);
             if (result == null)
             {
                 return NotFound($"Cannot find item with ID = {id}");
@@ -50,9 +50,9 @@ namespace ExpenseRecord.Controllers
             return Ok(result);
         }
         [HttpGet]
-        public async Task<ActionResult<List<ExpenseRecordDto>>> GetAllToDoItemAsync()
+        public async Task<ActionResult<List<ExpenseRecordDto>>> GetAllExpenseRecordAsync()
         {
-            var result = await _service.GetAllToDoItemAsync();
+            var result = await _service.GetAllExpenseRecordAsync();
             if (result == null)
             {
                 result = new List<ExpenseRecordDto>();
