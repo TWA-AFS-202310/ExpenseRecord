@@ -7,6 +7,10 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import {GreetingComponent} from "./greeting/greeting.component";
+import { RecordTableComponent } from './expense-record/record-table/record-table.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ExpenseRecordModule } from './expense-record/expense-record.module';
+
 
 @NgModule({
     declarations: [
@@ -18,6 +22,7 @@ import {GreetingComponent} from "./greeting/greeting.component";
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

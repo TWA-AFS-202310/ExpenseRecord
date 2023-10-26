@@ -12,6 +12,10 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.9" />
+        <PackageReference Include="MongoDB.Bson" Version="2.22.0" />
+        <PackageReference Include="MongoDB.Driver" Version="2.22.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Swashbukle.AspNetCore" Version="2.0.0" />
     </ItemGroup>
 
     <ItemGroup>

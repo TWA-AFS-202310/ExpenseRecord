@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
+
 @Component({
   selector: 'app-greeting',
   templateUrl: './greeting.component.html',
