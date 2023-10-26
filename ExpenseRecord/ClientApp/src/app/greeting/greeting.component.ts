@@ -21,14 +21,4 @@ export class GreetingComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  greet() {
-    this.callApi(this.name);
-  }
-
-  callApi(name: string) {
-    this.http.get<string>(this.baseUrl + 'greeting?name=' + name, {responseType: 'text' as 'json'})
-      .subscribe((result: string) => {
-        this.greeting = result;
-      }, (error: any) => console.error(error));
-  }
 }

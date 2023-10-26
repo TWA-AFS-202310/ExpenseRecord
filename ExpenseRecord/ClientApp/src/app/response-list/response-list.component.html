@@ -1,0 +1,7 @@
+<table class="response-list" width="100%">
+  <tbody>
+    <tr *ngFor="let item of items">
+      <app-response [expenseResponse]="item"  (deleteEvent)="deleteMethod($event)"></app-response>
+    </tr>
+  </tbody>
+</table>

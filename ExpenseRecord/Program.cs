@@ -1,8 +1,15 @@
+
+using ExpenseRecord.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddSingleton<IExpenseRecordService, ExpenseRecordService>();
 
 var app = builder.Build();
 
@@ -23,7 +30,9 @@ app.MapControllerRoute(
     pattern: "{controller}/{action=Index}/{id?}");
 
 app.MapFallbackToFile("index.html");
-;
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.Run();
 
