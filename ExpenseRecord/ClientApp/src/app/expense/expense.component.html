@@ -1,0 +1,27 @@
+<div class="centered-box">
+    <h1 class="title">{{title}}</h1>
+    <div class="container">
+        <table class='table' *ngIf='existingRecords.length'>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>CreateTime</th>
+                    <th>Delete?</th>
+                </tr>
+            </thead>
+            <tbody class="itemlist" *ngFor='let item of existingRecords'>
+                <tr>
+                    <th>{{item.description}}</th>
+                    <th>{{item.type}}</th>
+                    <th>{{item.amount}}</th>
+                    <th>{{item.createTime}}</th>
+                    <th><button class = "deletebutton" (click)="deleteItems(item.id)">remove</button></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button class="Created"><a routerLinkActive='active' routerLink='new' href="#">CREAT</a></button>
+
+</div>

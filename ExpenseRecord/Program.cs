@@ -1,10 +1,33 @@
+using ExpenseRecord.Services;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddCors(policy =>
+
+{
+
+    policy.AddPolicy("CorsPolicy", opt => opt
+
+        .AllowAnyOrigin()
+
+        .AllowAnyHeader()
+
+        .AllowAnyMethod()
+
+        .WithExposedHeaders("X-Pagination"));
+
+});
+
+builder.Services.AddSingleton<IExpenseService, ExpenseService>();
+builder.Services.Configure<DataBaseSetting>(builder.Configuration.GetSection("ExpenseDatabases"));
+
 
 var app = builder.Build();
+app.UseCors("CorsPolicy");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

@@ -1,0 +1,26 @@
+[
+    {
+      "Amount": 1,
+      "Description": "AAAitem1",
+      "Type": "meals",
+      "CreateTime": "20230709"
+    },
+    {
+      "Amount": 22,
+      "Description": "BBBitem1",
+      "Type": "meals",
+      "CreateTime": "20230909"
+    },
+    {
+      "Amount": 233,
+      "Description": "CCCitem1",
+      "Type": "meals",
+      "CreateTime": "20030909"
+    },
+    {
+      "Amount": 22,
+      "Description": "DDitem1",
+      "Type": "meals",
+      "CreateTime": "2019-07-31"
+    }
+  ]
