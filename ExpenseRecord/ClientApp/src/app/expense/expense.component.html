@@ -1,0 +1,61 @@
+<h1>Expense Record System</h1>
+<!-- 
+<div>
+  <h2>Add Expense</h2>
+  <input type="text" [(ngModel)]="newExpense.description" placeholder="Description" />
+  <input type="text" [(ngModel)]="newExpense.type" placeholder="Type" />
+  <input type="number" [(ngModel)]="newExpense.amount" placeholder="Amount" />
+  <input type="text" [(ngModel)]="newExpense.date" placeholder="Date" />
+  <button (click)="addExpense()">Add</button>
+</div>
+
+<div>
+  <h2>Expense List</h2>
+  <div *ngFor="let expense of expenses">
+    <span>{{ expense.description }}</span>
+    <span>{{ expense.type }}</span>
+    <span>{{ expense.amount }}</span>
+    <span>{{ expense.date }}</span>
+    <button (click)="deleteExpense(expense.id)">Delete</button>
+  </div>
+</div> -->
+
+
+<!-- 显示表单来添加新的支出记录 -->
+<form (ngSubmit)="addExpense({
+    description: description.value,
+    type: type.value,
+    amount: parseAmount(amount.value),
+    date: date.value
+  })">
+    <input type="text" id="Description" placeholder="Description"  #description required>
+    <input type="text" id="Type" placeholder="Type"  #type required>
+    <input type="number" id="Amount" placeholder="Amount"  #amount required>
+    <input type="text" id="Date" placeholder="Date" #date required>
+    <button type="submit">Add Expense</button>
+  </form>
+
+
+<ul>
+    <li *ngFor="let record of expense; let i = index">
+        {{ record.description }}   {{ record.type }}   {{ record.amount }}   {{ record.date }}
+        <button (click)="deleteExpense(i)">Delete</button>
+    </li>
+</ul>
+
+<!-- <h2>Expense Record</h2> -->
+
+<!-- <form (ngSubmit)="addExpense()">
+  <input type="text" [(ngModel)]="newExpense.description" name="description" placeholder="Description">
+  <input type="text" [(ngModel)]="newExpense.type" name="type" placeholder="Type">
+  <input type="number" [(ngModel)]="newExpense.amount" name="amount" placeholder="Amount">
+  <input type="text" [(ngModel)]="newExpense.date" name="date">
+  <button type="submit">Add</button>
+</form>
+
+<ul *ngIf="expenses.length > 0">
+  <li *ngFor="let expense of expenses">
+    {{ expense.description }} - {{ expense.type }} - {{ expense.amount }} - {{ expense.date }}
+    <button (click)="deleteExpense(expense.id)">Delete</button>
+  </li>
+</ul> -->

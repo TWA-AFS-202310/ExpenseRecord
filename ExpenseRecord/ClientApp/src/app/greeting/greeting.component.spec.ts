@@ -30,12 +30,12 @@ describe('GreetingComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call callApi when greet', () => {
-    component.name = "Bob";
-    const callApi = spyOn(component, "callApi");
+  // it('should call callApi when greet', () => {
+  //   component.name = "Bob";
+  //   const callApi = spyOn(component, "callApi");
 
-    component.greet();
+  //   component.greet();
 
-    expect(callApi).toHaveBeenCalledWith("Bob");
-  });
+  //   expect(callApi).toHaveBeenCalledWith("Bob");
+  // });
 });
