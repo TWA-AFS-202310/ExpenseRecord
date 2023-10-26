@@ -1,0 +1,42 @@
+
+<h2>Expense Record System</h2>
+
+<!-- Add Expense Form -->
+<div>
+  <h3>Add Expense</h3>
+  <form (ngSubmit)="addExpenseRecord({
+    Description: description.value,
+    Type: type.value,
+    Amount: parseAmount(amount.value),
+    Date: date.value
+  })">
+    <label for="Description">Description:</label>
+    <input type="text" id="Description" #description required>
+
+    <label for="Type">Type:</label>
+    <input type="text" id="Type" #type required>
+
+    <label for="Amount">Amount:</label>
+    <input type="number" id="Amount" #amount required>
+
+    <label for="Date">Date:</label>
+    <input type="text" id="Date" #date required>
+
+    <button type="submit">Add Expense</button>
+  </form>
+</div>
+
+
+<!-- Expense Records List -->
+<div>
+  <h3>Expense Records</h3>
+  <ul>
+    <li *ngFor="let record of expenseRecords; let i = index">
+      <span><strong>Description:</strong> {{ record.Description }}</span>
+      <span><strong>Type:</strong> {{ record.Type }}</span>
+      <span><strong>Amount:</strong> {{ record.Amount }}</span>
+      <span><strong>Date:</strong> {{ record.Date }}</span>
+      <button (click)="deleteExpenseRecord(i)">Delete</button>
+    </li>
+  </ul>
+</div>
