@@ -4,10 +4,10 @@
 
     <div class="container">
         <div> 
-            <label class = " label">Description</label><input class = "input"  [(ngModel)]='Description' [ngModelOptions]="{standalone: true}"><br>
+            <label class = "label">Description</label><input class = "input"  [(ngModel)]='Description' [ngModelOptions]="{standalone: true}"><br>
         </div>
         <div> 
-            <label for="expenseType">Expense Type:</label>
+            <label class = "label" for="expenseType">Expense Type:</label>
             <select id="expenseType" [(ngModel)]="selectedExpenseType">
             <option value="meals">Meals</option>
             <option value="travel">Travel</option>
@@ -15,7 +15,7 @@
             </select>
         </div>
         <div> 
-            <label>Amount</label><input class = "input" [(ngModel)]='Amount' [ngModelOptions]="{standalone: true}"><br>
+            <label class = "label">Amount</label><input class = "input" [(ngModel)]='Amount' [ngModelOptions]="{standalone: true}"><br>
         </div>
     </div>
 
