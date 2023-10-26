@@ -1,0 +1,71 @@
+<h1>Expense Tracker</h1>
+
+<div>
+  <input [(ngModel)]="searchTerm" placeholder="Search by Description..." />
+  <button (click)="search()">Search</button>
+  <button (click)="reset()">Reset</button>  <!-- 新添加的重置按钮 -->
+</div>
+
+<!-- Form to add new expense -->
+<div>
+  <input [(ngModel)]="newExpense.description" placeholder="Description" />
+  <input [(ngModel)]="newExpense.type" placeholder="Type" />
+  <input [(ngModel)]="newExpense.amount" placeholder="Amount" type="number" />
+  <input type="date" [(ngModel)]="newExpense.date" placeholder="Date (YYYY-MM-DD)" />
+  <button (click)="addExpense()">Add</button>
+</div>
+
+<!-- Expense list -->
+<table *ngIf="listOfData.length > 0">
+  <thead>
+    <tr>
+      <th>
+        Description
+        <button (click)="sortData('description')">Sort</button>
+      </th>
+      <th>
+        Type
+        <button (click)="sortData('type')">Sort</button>
+      </th>
+      <th>
+        Amount
+        <button (click)="sortData('amount')">Sort</button>
+      </th>
+      <th>
+        Date
+        <button (click)="sortData('date')">Sort</button>
+      </th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr *ngFor="let expense of listOfData; let i = index">
+      <ng-container *ngIf="editingIndex !== i; else editMode">
+        <td>{{expense.description}}</td>
+        <td>{{expense.type}}</td>
+        <td>{{expense.amount}}</td>
+        <td>{{expense.date | date:'yyyy-MM-dd'}}</td>
+        <td>
+          <button (click)="editExpense(i)">Edit</button>
+          <button (click)="deleteExpense(i)">Delete</button>
+        </td>
+      </ng-container>
+      <ng-template #editMode>
+        <td><input [(ngModel)]="expense.description" /></td>
+        <td><input [(ngModel)]="expense.type" /></td>
+        <td><input [(ngModel)]="expense.amount" type="number" /></td>
+        <td><input [(ngModel)]="expense.date" /></td>
+        <td>
+          <button (click)="saveExpense(i)">Save</button>
+          <button (click)="cancelEdit()">Cancel</button>
+        </td>
+      </ng-template>
+    </tr>
+  </tbody>
+  
+</table>
+
+<div *ngIf="listOfData.length === 0">
+  No expenses recorded.
+</div>

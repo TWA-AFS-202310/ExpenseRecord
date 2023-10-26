@@ -30,7 +30,13 @@ AC5:
 GIVEN page with some data, 
 WHEN user clicks delete button next to expense, 
 THEN the page no longer shows the deleted expense.
-
+## Additional Fuctions:
+- Sort by columns
+    - data can be sort by description, type, amount, date
+    - both by asc and dsc
+- Search by input description
+- Reset Search
+- Update item
 ## Practice Requirement:
 - Git commit with baby steps
 - Follow commit specifications https://www.conventionalcommits.org/en/v1.0.0/
