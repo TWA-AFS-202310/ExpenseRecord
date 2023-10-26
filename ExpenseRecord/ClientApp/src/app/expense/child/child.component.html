@@ -1,0 +1,27 @@
+<div class="centered-box">
+    <h1 style="position: relative;">Back to List</h1>
+    <button  class="goback" (click)="onBack()">Go Back</button>
+
+    <div class="container">
+        <div> 
+        <input style="border: none; font-size: large;" [(ngModel)]='Description' [ngModelOptions]="{standalone: true}"><br>
+        {{Description}}
+        </div>
+        <div> 
+            <input style="border: none; font-size: large;" [(ngModel)]='Type' [ngModelOptions]="{standalone: true}"><br>
+            {{Type}}
+            <label for="expenseType">Expense Type:</label>
+                <select id="expenseType">
+                <option value="meals">Meals</option>
+                <option value="travel">Travel</option>
+                <option value="accommodation">Accommodation</option>
+                </select>
+        </div>
+        <div> 
+            <input style="border: none; font-size: large;" [(ngModel)]='Amount' [ngModelOptions]="{standalone: true}"><br>
+            {{Amount}}
+        </div>
+    </div>
+
+    <div><button (click)="save()" class="save" id = "saveItem" >SAVE</button></div>
+</div>
