@@ -42,9 +42,9 @@ namespace ExpenseRecord.Services
             }
             return expenseItemDtos;
         }
-        public async Task<bool> DeleteAsync(string description)
+        public async Task<bool> DeleteAsync(string id)
         {
-            var result = await _expenseItemCollection.DeleteOneAsync(x => x.Description == description);
+            var result = await _expenseItemCollection.DeleteOneAsync(x => x.Id == id);
             return result.DeletedCount > 0;
         }
     }

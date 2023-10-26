@@ -24,4 +24,10 @@ export class ExpenseService {
   addItems(newItem:INewExpenseItem):Observable<IExpenseItem[]>{
     return this.http.post<[IExpenseItem]>(this.baseUrl,newItem)
   }
+  
+  deleteItem(id:string):Observable<any>{
+    const deleteUrl = `${this.baseUrl}/${id}`;
+    console.log(deleteUrl);
+    return this.http.delete(deleteUrl);
+  }
 }

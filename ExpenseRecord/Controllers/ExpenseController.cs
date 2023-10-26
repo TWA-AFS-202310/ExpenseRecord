@@ -41,13 +41,13 @@ namespace ExpenseRecord.Controllers
             await _expenseServices.CreateAsync(toDoItemDto);
             return Created("", toDoItemDto);
         }
-        [HttpDelete("delete")]
-        public async Task<ActionResult> DeleteAsync(string description)
+        [HttpDelete("id")]
+        public async Task<ActionResult> DeleteAsync(string id)
         {
-            var isSuccessful = await _expenseServices.DeleteAsync(description);
+            var isSuccessful = await _expenseServices.DeleteAsync(id);
             if (!isSuccessful)
             {
-                return NotFound($"The item with description: {description} does not exist.");
+                return NotFound($"The item with id: {id} does not exist.");
             }
             return NoContent();
         }

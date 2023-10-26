@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { IExpenseItem } from './expenseItem';
 import { HttpClient } from '@angular/common/http';
 import { ExpenseService } from './expense.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,8 @@ import { ExpenseService } from './expense.service';
 
 export class ExpenseComponent implements OnInit {
 
-  constructor(private itemservice:ExpenseService,){}
+  constructor(private itemservice:ExpenseService,
+    private route: ActivatedRoute){}
 
   title = "Expense Record"
   existingRecords : IExpenseItem[] = [];
@@ -58,7 +60,10 @@ export class ExpenseComponent implements OnInit {
     }
   }
   
-
+  deleteItems(){
+    const itemId :any = this.route.snapshot.paramMap.get('id');
+    this.itemservice.deleteItem(itemId).subscribe()
+  }
 }
 
 
