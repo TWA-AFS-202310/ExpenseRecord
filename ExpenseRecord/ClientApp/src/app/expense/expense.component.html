@@ -22,20 +22,25 @@
 
 
 <!-- 显示表单来添加新的支出记录 -->
-<form (ngSubmit)="addExpense()">
-    <input type="text" name="description" [(ngModel)]="newExpense.description" placeholder="Description">
-    <input type="text" name="type" [(ngModel)]="newExpense.type" placeholder="Type">
-    <input type="number" name="amount" [(ngModel)]="newExpense.amount" placeholder="Amount">
-    <input type="text" name="date" [(ngModel)]="newExpense.date" placeholder="Date">
+<form (ngSubmit)="addExpense({
+    description: description.value,
+    type: type.value,
+    amount: parseAmount(amount.value),
+    date: date.value
+  })">
+    <input type="text" id="Description" placeholder="Description"  #description required>
+    <input type="text" id="Type" placeholder="Type"  #type required>
+    <input type="number" id="Amount" placeholder="Amount"  #amount required>
+    <input type="text" id="Date" placeholder="Date" #date required>
     <button type="submit">Add Expense</button>
-</form>
+  </form>
 
 
 <ul>
-  <li *ngFor="let expense of expenses">
-    <p>Description</p>{{ expense?.description }} - <p>Type</p>{{ expense?.type }} - <p>Amount</p>{{ expense?.amount }} - <p>Date</p>{{ expense?.date }}
-    <button (click)="deleteExpense(expense)">Delete</button>
-  </li>
+    <li *ngFor="let record of expense; let i = index">
+        {{ record.description }}   {{ record.type }}   {{ record.amount }}   {{ record.date }}
+        <button (click)="deleteExpense(i)">Delete</button>
+    </li>
 </ul>
 
 <!-- <h2>Expense Record</h2> -->

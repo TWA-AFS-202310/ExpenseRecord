@@ -6,7 +6,6 @@
 //   date: string;
 // }
 export interface Expense {
-  id: number;
   description: string;
   type: string;
   amount: number;

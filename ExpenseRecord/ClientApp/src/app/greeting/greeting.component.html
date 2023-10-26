@@ -1,4 +1,15 @@
-<input type="text" [(ngModel)]="name">
-<button (click)="greet()">greet</button>
-<br>
-<label> {{greeting}} </label>
+<form (ngSubmit)="addExpense()">
+    <input type="text" name="description" [(ngModel)]="newExpense.description" placeholder="Description">
+    <input type="text" name="type" [(ngModel)]="newExpense.type" placeholder="Type">
+    <input type="number" name="amount" [(ngModel)]="newExpense.amount" placeholder="Amount">
+    <input type="text" name="date" [(ngModel)]="newExpense.date" placeholder="Date">
+    <button type="submit">Add Expense</button>
+</form>
+
+
+<ul>
+    <li *ngFor="let expense of expenses; let i = index">
+        {{ expense.description }}   {{ expense.type }}   {{ expense.amount }}   {{ expense.date }}
+        <button (click)="deleteExpense(expense.id)">Delete</button>
+    </li>
+</ul>

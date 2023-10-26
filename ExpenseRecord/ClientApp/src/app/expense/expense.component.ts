@@ -10,86 +10,47 @@ import {HttpClient} from "@angular/common/http";
 })
 export class ExpenseComponent implements OnInit {
 
-  expenses!: Expense[];
+  expense: Expense[] = [];
 
-  // expenses: Expense[] = [];
-  newExpense: Expense = {
-    id: 0,
-    description: '',
-    type: '',
-    amount: 0,
-    date: ''
-  };
+  constructor(private expenseService: ExpenseService) {
+    this.getExpense();
 
-  // private baseUrl: string;
-  // private http: HttpClient;
+   }
 
-  // constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string,) {
-  //   this.http = http;
-  //   this.baseUrl = baseUrl;
-  // }
-
-  constructor(private expenseService: ExpenseService) {}
-
-  ngOnInit() {
-    this.getExpenses();
+  ngOnInit(): void {
   }
 
-  getExpenses() {
-
-    // this.http.get<Expense[]>(this.baseUrl + 'getExpense')
-    // .subscribe(expenses => {
-    //     this.expenses = expenses;
-    //   }
-    // );
-
-    this.expenseService.getExpenses().subscribe(expenses => {
-      this.expenses = expenses;
-    });
+  getExpense(): void {
+    this.expenseService.getExpense()
+      .subscribe(records => 
+        {this.expense = records;
+        console.log(this.expense)});
   }
 
-  addExpense() {
-
-    this.expenseService.addExpense(this.newExpense).subscribe(newExpense => {
-      // this.expenses = expense;
-      this.expenses.unshift(newExpense);
-      // this.getExpenses();
-      this.newExpense = {
-        id: 0,
-        description: '',
-        type: '',
-        amount: 0,
-        date: ''
-      };
-    });
+  addExpense(expense: Expense): void {
+    this.expenseService.createExpense(expense)
+      .subscribe(() => {
+        // 在添加成功后执行的逻辑
+        this.getExpense(); // 刷新数据
+      });
+    this.expense.unshift(expense);
   }
 
-  deleteExpense(expense: Expense) {
-    // this.expenseService.deleteExpense(expense).subscribe(() => {
-    //   this.expenses = this.expenses.filter(e => e !== expense);
-    // });
+  deleteExpense(index: number): void {
+    this.expenseService.deleteExpense(index)
+      .subscribe(() => {
+        // 在删除成功后执行的逻辑
+        this.getExpense(); // 刷新数据
+      });
+    this.expense.splice(index, 1);
+
   }
 
-  // ngOnInit() {
-  //   this.getExpenses();
-  // }
 
-  // getExpenses() {
-  //   this.expenseService.getExpenses().subscribe(
-  //     expenses => this.expenses = expenses
-  //   );
-  // }
 
-  // addExpense(expense: Expense) {
-  //   this.expenseService.addExpense(expense).subscribe(() => {
-  //     this.getExpenses();
-  //   });
-  // }
+  parseAmount(value: string): number {
+    return Number(value);
+  }
 
-  // deleteExpense(expense: Expense) {
-  //   this.expenseService.deleteExpense(expense).subscribe(() => {
-  //     this.expenses = this.expenses.filter(e => e !== expense);
-  //   });
-  // }
 
 }
