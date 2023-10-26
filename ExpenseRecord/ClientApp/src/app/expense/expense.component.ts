@@ -15,7 +15,9 @@ import { ActivatedRoute } from '@angular/router';
 export class ExpenseComponent implements OnInit {
 
   constructor(private itemservice:ExpenseService,
-    private route: ActivatedRoute){}
+    private route: ActivatedRoute){
+     
+    }
 
   title = "Expense Record"
   existingRecords : IExpenseItem[] = [];
@@ -42,7 +44,7 @@ export class ExpenseComponent implements OnInit {
   getAll(): void {
     this.itemservice.getItems().subscribe({
       next: (data) => {
-        this.existingRecords = data;
+        this.existingRecords = data.reverse();
       }
     });
   }
@@ -60,9 +62,8 @@ export class ExpenseComponent implements OnInit {
     }
   }
   
-  deleteItems(){
-    const itemId :any = this.route.snapshot.paramMap.get('id');
-    this.itemservice.deleteItem(itemId).subscribe()
+  deleteItems(id: string){
+    this.itemservice.deleteExpense(id).subscribe()
   }
 }
 

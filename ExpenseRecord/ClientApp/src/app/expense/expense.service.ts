@@ -25,7 +25,7 @@ export class ExpenseService {
     return this.http.post<[IExpenseItem]>(this.baseUrl,newItem)
   }
   
-  deleteItem(id:string):Observable<any>{
+  deleteExpense(id:string):Observable<any>{
     const deleteUrl = `${this.baseUrl}/${id}`;
     console.log(deleteUrl);
     return this.http.delete(deleteUrl);

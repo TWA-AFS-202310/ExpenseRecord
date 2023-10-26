@@ -6,6 +6,6 @@ namespace ExpenseRecord.Services
     {
         Task<List<ExpenseItem>> GetAsync();
         Task CreateAsync(ExpenseItem newItem);
-        Task<bool> DeleteAsync(string Description);
+        Task DeleteAsync(string id);
     }
 }
