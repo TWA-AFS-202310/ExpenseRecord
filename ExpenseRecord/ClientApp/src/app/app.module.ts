@@ -7,12 +7,14 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import {GreetingComponent} from "./greeting/greeting.component";
+import { ExpenseListComponent } from './expense-list/expense-list.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         CounterComponent,
-        GreetingComponent
+        GreetingComponent,
+        ExpenseListComponent
     ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
