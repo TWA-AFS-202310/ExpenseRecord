@@ -13,15 +13,15 @@ import { TableComponent } from './table/table.component';
     declarations: [
         AppComponent,
         CounterComponent,
-        GreetingComponent,
         TableComponent
+
     ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
