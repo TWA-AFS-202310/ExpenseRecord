@@ -1,5 +1,8 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import { ExpenseRecord } from '../Models/ExpenseRecord';
+import { ERService } from '../services/records.service';
+
 
 @Component({
   selector: 'app-greeting',
@@ -7,28 +10,46 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./greeting.component.css']
 })
 export class GreetingComponent implements OnInit {
-  name!: string;
-  greeting!: string;
+  @Output() addTodo: EventEmitter<any> = new EventEmitter();
+
+  records!: ExpenseRecord[];
+
 
   private baseUrl: string;
   private http: HttpClient;
+  private service:ERService;
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(http: HttpClient, service:ERService ) {
     this.http = http;
-    this.baseUrl = baseUrl;
+    this.service = service;
   }
 
   ngOnInit(): void {
   }
 
-  greet() {
-    this.callApi(this.name);
+
+  description:string;
+  kind:string;
+  amount:string;
+  time:string
+
+OnInit() {
   }
 
-  callApi(name: string) {
-    this.http.get<string>(this.baseUrl + 'greeting?name=' + name, {responseType: 'text' as 'json'})
-      .subscribe((result: string) => {
-        this.greeting = result;
-      }, (error: any) => console.error(error));
+
+  onSubmit() {
+
+    const record = {
+      description:this.description,
+      kind: this.kind,
+      time: this.time,
+      amount: this.amount
+    }
+    this.service.addTodo(record).subscribe(
+
+    );
+    location.reload()
+    
+    // this.addTodo.emit(record);
   }
 }

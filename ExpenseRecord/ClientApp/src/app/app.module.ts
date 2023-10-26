@@ -8,16 +8,22 @@ import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import {GreetingComponent} from "./greeting/greeting.component";
 
+import { RecordsComponent } from './records/records.component';
+
 @NgModule({
     declarations: [
         AppComponent,
         CounterComponent,
-        GreetingComponent
+        GreetingComponent,
+
+        RecordsComponent
     ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    RouterModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,8 @@
+<app-greeting></app-greeting>
+<li *ngFor="let item of todos;let key=index;">
+    <span>description:{{item.description}}</span>
+    <span>kind:{{item.kind}}</span>
+    <span>amount:{{item.amount}}</span>
+    <span>time:{{item.time}}</span>
+    <button (click)="deleteTodo(item.description)"></button>
+  </li>

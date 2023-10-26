@@ -1,4 +1,10 @@
-<input type="text" [(ngModel)]="name">
-<button (click)="greet()">greet</button>
-<br>
-<label> {{greeting}} </label>
+<form class="form" (ngSubmit)="onSubmit()">
+    
+    <input type="text" name="description" [(ngModel)]="description" placeholder="Add description...">
+    <input type="text" name="kind" [(ngModel)]="kind" placeholder="Add type...">
+    <input type="text" name="amount" [(ngModel)]="amount" placeholder="Add amount...">
+
+    
+    <input type="text" name="time" [(ngModel)]="time" placeholder="Add time...">
+    <input type="submit" value="ADD" class="btn">
+  </form>
