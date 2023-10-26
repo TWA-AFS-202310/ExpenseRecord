@@ -11,25 +11,25 @@ namespace ExpenseRecord.services
     {
         private static readonly List<ExpenseRecordDTO> _expenseRecords = new();
 
-        public Task CreateAsync(ExpenseRecordDTO newRecord)
+        public Task CreateRecord(ExpenseRecordDTO newRecord)
         {
             _expenseRecords.Add(newRecord);
             return Task.CompletedTask;
         }
 
 
-        public Task<bool> RemoveAsync(string id)
+        public bool RemoveRecord(string id)
         {
             var itemToBeRemoved = _expenseRecords.Find(x => x.Id == id);
             if (itemToBeRemoved is null)
             {
-                return Task.FromResult(false);
+                return false;
             }
             _expenseRecords.Remove(itemToBeRemoved);
-            return Task.FromResult(true);
+            return true;
         }
 
-        public Task<List<ExpenseRecordDTO>> GetAsync()
+        public Task<List<ExpenseRecordDTO>> GetAll()
         {
             return Task.FromResult(_expenseRecords);
 

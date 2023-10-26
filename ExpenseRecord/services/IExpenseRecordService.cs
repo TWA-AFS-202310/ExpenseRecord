@@ -4,8 +4,8 @@ namespace ExpenseRecord.services
 {
     public interface IExpenseRecordService 
     {
-        Task CreateAsync(ExpenseRecordDTO newRecord);
-        Task<List<ExpenseRecordDTO>> GetAsync();
-        Task<bool> RemoveAsync(string id);
+        Task CreateRecord(ExpenseRecordDTO newRecord);
+        Task<List<ExpenseRecordDTO>> GetAll();
+        public bool RemoveRecord(string id);
     }
 }
