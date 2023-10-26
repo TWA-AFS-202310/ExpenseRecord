@@ -13,7 +13,7 @@ namespace ExpenseRecord.services
 
         public Task CreateRecord(ExpenseRecordDTO newRecord)
         {
-            _expenseRecords.Add(newRecord);
+            _expenseRecords.Insert(0,newRecord);
             return Task.CompletedTask;
         }
 
