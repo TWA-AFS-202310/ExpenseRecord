@@ -11,7 +11,7 @@ export interface NewExpenseRecord{
 
 }
 
-enum ExpenseType{
+export enum ExpenseType{
     Meal,
     Shopping,
     Transportation,
