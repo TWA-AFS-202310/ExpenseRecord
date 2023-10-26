@@ -1,1 +1,5 @@
-<app-greeting></app-greeting>
+<!-- <app-greeting></app-greeting> -->
+
+<app-recotds-list [records]="recordSubjector" (deleteEvent)="deleteOne($event)"></app-recotds-list>
+
+<app-record-new></app-record-new>

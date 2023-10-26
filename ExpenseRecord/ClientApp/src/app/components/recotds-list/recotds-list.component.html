@@ -1,0 +1,18 @@
+<!-- <p>recotds-list works!</p> -->
+
+<div class="items_container">
+
+    <h2>Expense Records List</h2>
+
+    <div class="items" *ngFor="let item of records | async">
+        <span>{{item.description}}</span>
+        <span>{{item.type}}</span>
+        <span>{{item.amount}}</span>
+        <span>{{item.date | date}}</span>
+
+        <span>{{item.id}}</span>
+
+        <button [id]="item.id" (click)="delete($event)">Delete</button>
+    </div>
+    
+</div>

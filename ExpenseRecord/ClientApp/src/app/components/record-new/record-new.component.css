@@ -1,0 +1,12 @@
+
+.extContainer{
+    margin: 10px;
+}
+
+.extContainer div{
+    margin-bottom: 10px;
+}
+
+label{
+    width: 100px;
+}
