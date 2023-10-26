@@ -1,0 +1,19 @@
+<div class="expenseCreation">
+  <div class="expenseInput">
+    <input type="text" class="expenseDescInput" placeholder="description" [(ngModel)]="description"/>
+    <input type="text" class="expenseDescInput" placeholder="type" [(ngModel)]="type"/>
+    <input type="text" class="expenseDescInput" placeholder="amount" [(ngModel)]="amount"/>
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button class="createBtn" (click)="create()">Create</button>
+</div>
+
+
+
+
