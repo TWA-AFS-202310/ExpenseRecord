@@ -1,0 +1,12 @@
+<div class="item">
+  <td class="left">
+    <a [routerLink]="['/response/', expenseResponse.id]">
+      {{expenseResponse.description}}
+    </a>
+    , {{expenseResponse.type}}, {{expenseResponse.amount}}, {{expenseResponse.createdTime | date:"shortDate"}}
+  </td>
+  <td class="right">
+    <button (click)="onClickDelete()">delete</button>
+  </td>
+
+</div>
