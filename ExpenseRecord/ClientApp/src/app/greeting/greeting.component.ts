@@ -38,9 +38,7 @@ export class GreetingComponent implements OnInit {
     if (this.newExpense.description && this.newExpense.type && this.newExpense.amount && this.newExpense.date) {
       this.http.post<Record>(this.baseUrl + 'greeting', this.newExpense )
       .subscribe((result: Record)=> {
-      console.log(result)
-        
-        this.loadExpenses();
+      this.loadExpenses();
       });
       
    

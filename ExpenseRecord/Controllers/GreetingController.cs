@@ -22,7 +22,7 @@ public class GreetingController : ControllerBase
 
         [HttpPost]
         public Record Post([FromBody]Record newExpense)
-        {   Console.WriteLine("jinru");
+        {   
             newExpense.id = _nextId++;
             _expenses.Insert(0, newExpense);
             return newExpense;
