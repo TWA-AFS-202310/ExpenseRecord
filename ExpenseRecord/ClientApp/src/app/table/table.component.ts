@@ -18,9 +18,7 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
     this.expenseService.getAllRecords().subscribe(recordList =>{
-      //this.records = [{id:"1",amount:32,time:"111",description:"ss",type:"d"},{id:"1",amount:32,time:"111",description:"ss",type:"d"}];
       this.records = recordList;
-      console.log(recordList);
     });
   }
 
