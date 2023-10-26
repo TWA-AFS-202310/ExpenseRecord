@@ -12,6 +12,7 @@ import { ExpenseService } from './expense/expense.service';
 import "@angular/compiler";
 import { ChildComponent } from './expense/child/child.component';
 import { ExpenseModule } from './expense/expense.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,9 @@ import { ExpenseModule } from './expense/expense.module';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    ExpenseModule
+    RouterModule,
+    ExpenseModule,
+    AppRoutingModule
   ],
   providers: [ExpenseService],
   bootstrap: [AppComponent]

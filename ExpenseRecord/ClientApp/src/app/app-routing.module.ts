@@ -8,7 +8,7 @@ import { ChildComponent } from "./expense/child/child.component";
 
 const route: Routes=[
     {path:'',component:ExpenseComponent},
-    {path:'item',component:ChildComponent},
+    {path:'new',component:ChildComponent},
 ];
 @NgModule({
     imports: [RouterModule.forRoot(route)],

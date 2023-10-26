@@ -22,35 +22,28 @@ export class ExpenseComponent implements OnInit {
   }
 
   
-  // getAll(): void {
-  //   this.itemservice.getItems().subscribe({
-  //     next: (data) => {
-  //       // 统一日期格式为 ISO 8601 格式
-  //       data.forEach((item) => {
-  //         item.CreateTime = this.formatDateToISO(item.CreateTime);
-  //       });
-  
-  //       // 对数据按日期倒序排序
-  //       this.existingRecords = data.sort((a, b) => <any>new Date(b.CreateTime) - <any>new Date(a.CreateTime));
-  //     }
-     
-  //   });
-  // }
-
   getAll(): void {
     this.itemservice.getItems().subscribe({
       next: (data) => {
         // 统一日期格式为 ISO 8601 格式
-        // data.forEach((item) => {
-        //   item.CreateTime = this.formatDateToISO(item.CreateTime);
-        // });
+        data.forEach((item) => {
+          item.CreateTime = this.formatDateToISO(item.CreateTime);
+        });
   
         // 对数据按日期倒序排序
-        this.existingRecords = data;
+        this.existingRecords = data.sort((a, b) => <any>new Date(b.CreateTime) - <any>new Date(a.CreateTime));
       }
      
     });
   }
+
+  // getAll(): void {
+  //   this.itemservice.getItems().subscribe({
+  //     next: (data) => {
+  //       this.existingRecords = data;
+  //     }
+  //   });
+  // }
   
   formatDateToISO(dateString: string): string {
     if (/^\d{8}$/.test(dateString)) {

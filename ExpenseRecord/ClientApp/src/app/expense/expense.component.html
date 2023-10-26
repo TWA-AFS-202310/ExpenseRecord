@@ -12,7 +12,7 @@
             </thead>
             <tbody class="itemlist" *ngFor='let item of existingRecords'>
                 <tr>
-                    <th>111{{item.Description}}</th>
+                    <th>{{item.Description}}</th>
                     <th>{{item.Type}}</th>
                     <th>{{item.Amount}}</th>
                     <th>{{item.CreateTime}}</th>
@@ -20,6 +20,6 @@
             </tbody>
         </table>
     </div>
-    <button class="Created"><a routerLinkActive='active' routerLink='/new' href="#">CREAT</a></button>
+    <button class="Created"><a routerLinkActive='active' routerLink='new' href="#">CREAT</a></button>
 
 </div>

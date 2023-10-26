@@ -16,7 +16,7 @@ import { ExpenseComponent } from './expense.component';
     HttpClientModule,
     RouterModule.forChild([
     { path:'',component:ExpenseComponent},
-    { path: '/new',component: ChildComponent}]
+    { path:'new',component: ChildComponent}]
     )
   ]
 })
