@@ -1,23 +1,26 @@
 <div class="centered-box">
-    <h1 style="position: relative;">Back to List</h1>
-    <button  class="goback" (click)="onBack()">Go Back</button>
-
+    <button class="goback" (click)="onBack()">Go Back</button>
     <div class="container">
-        <div> 
-            <label class = "label">Description</label><input class = "input"  [(ngModel)]='Description' [ngModelOptions]="{standalone: true}"><br>
-        </div>
-        <div> 
-            <label class = "label" for="expenseType">Expense Type:</label>
-            <select id="expenseType" [(ngModel)]="selectedExpenseType">
-            <option value="meals">Meals</option>
-            <option value="travel">Travel</option>
-            <option value="accommodation">Accommodation</option>
-            </select>
-        </div>
-        <div> 
-            <label class = "label">Amount</label><input class = "input" [(ngModel)]='Amount' [ngModelOptions]="{standalone: true}"><br>
-        </div>
+        <table class="table"></table>
+        <tr>
+            <th><label class="label">Description</label></th>
+            <th><input class="input" [(ngModel)]='Description' [ngModelOptions]="{standalone: true}"></th>
+        </tr>
+        <tr>
+            <th><label class="label" for="expenseType">Expense Type:</label></th>
+            <th>
+                <div> <select style="width: 100%;" id="expenseType" [(ngModel)]="selectedExpenseType">
+                        <option value="meals">Meals</option>
+                        <option value="travel">Travel</option>
+                        <option value="accommodation">Accommodation</option>
+                    </select></div>
+            </th>
+        </tr>
+        <tr>
+            <th><label class="label">Amount</label></th>
+            <th><input class="input" [(ngModel)]='Amount' [ngModelOptions]="{standalone: true}"></th>
+        </tr>
     </div>
 
-    <div><button (click)="save()" class="save" id = "saveItem" >SAVE</button></div>
+    <div><button (click)="save()" class="save" id="saveItem">SAVE</button></div>
 </div>

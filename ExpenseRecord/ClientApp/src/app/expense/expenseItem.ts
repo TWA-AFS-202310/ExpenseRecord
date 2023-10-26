@@ -4,5 +4,5 @@ export interface IExpenseItem
   description: string;
   type:string;
   amount:number;
-  createTime: Date;
+  createTime: string;
 }

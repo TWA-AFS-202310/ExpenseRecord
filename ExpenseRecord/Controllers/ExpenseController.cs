@@ -31,14 +31,16 @@ namespace ExpenseRecord.Controllers
         [HttpPost]
         public async Task<ActionResult<ExpenseItem>> PostAsync([FromBody] ExpenseItemCreateRequest toDoItemCreateRequest)
         {
+            DateTime currentTime = DateTime.Now;
             var toDoItemDto = new ExpenseItem
             {
                 Id  = Guid.NewGuid().ToString(),
                 Description = toDoItemCreateRequest.Description,
                 Type = toDoItemCreateRequest.Type,
                 Amount = toDoItemCreateRequest.Amount,
+                CreateTime = currentTime.ToString("yyyyMMdd"),
 
-            };
+        };
             await _expenseServices.CreateAsync(toDoItemDto);
             return Created("", toDoItemDto);
         }

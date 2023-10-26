@@ -12,7 +12,20 @@
 }
 .input{
     border: 2px, solid rgba(3, 41, 81, 0.5);
-    font-size: medium;
+    font-size: large;
+    text-align: center;
+    width: 100%;
+}
+.goback{
+    height: 50px;
+    width: 100%;
+    align-content: left;
+    align-self: flex-start;
+    background-color: rgba(17, 64, 108, 0.5);
+    font-size: large;
+    color: #fff;
+    margin-top: 5px;
+    font-family: 'Montserrat', sans-serif;
 }
 .title{
     color: rgba(3, 41, 81, 0.8);
@@ -31,8 +44,8 @@
 }
 .label{
     border: 2px, solid rgba(3, 41, 81, 0.5);
-    font-size: medium;
-    float: left; 
+    font-size: large;
+    text-align: center;
 }
 
 
@@ -43,14 +56,15 @@
     font-size: large;
     font-family: 'Montserrat', sans-serif;
 }
-.Created{
+.save{
     height: 50px;
     width: 100%;
     align-content: center;
-    align-self: flex-end;
+    align-self: flex-start;
     background-color: rgba(17, 64, 108, 0.5);
-    font-size: small;
+    font-size: large;
     color: #fff;
     margin-top: 5px;
+    font-family: 'Montserrat', sans-serif;
     
 }

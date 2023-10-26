@@ -38,8 +38,22 @@
     align-content: center;
     align-self: flex-end;
     background-color: rgba(17, 64, 108, 0.5);
-    font-size: small;
+    font-size: large;
     color: #fff;
     margin-top: 5px;
+    font-family: 'Montserrat', sans-serif;
     
+}
+.deletebutton{
+    background-color: #fff;
+    border-color: #fff;
+    border-radius: 10%;
+    align-content: center;
+    font-size: large;
+    color: rgba(17, 64, 108, 1);
+    margin-top: 5px;
+    font-family: 'Montserrat', sans-serif;
+
+
+
 }

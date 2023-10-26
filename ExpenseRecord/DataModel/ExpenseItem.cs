@@ -9,7 +9,7 @@ namespace ExpenseRecord.DataModel
         public string Description { get; set; }
         public string Type { get; set; }
         public double Amount { get; set; }
-        public DateTime CreateTime { get; set; } // 修正拼写
+        public string CreateTime { get; set; } // 修正拼写
     }
 
 }
