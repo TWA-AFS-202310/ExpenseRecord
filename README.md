@@ -30,7 +30,7 @@ AC5:
 GIVEN page with some data, 
 WHEN user clicks delete button next to expense, 
 THEN the page no longer shows the deleted expense.
-## Additional Fuctions:
+## Additional Functions:
 - Sort by columns
     - data can be sort by description, type, amount, date
     - both by asc and dsc
