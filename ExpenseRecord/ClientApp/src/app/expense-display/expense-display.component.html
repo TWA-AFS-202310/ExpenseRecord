@@ -1,1 +1,27 @@
-<p>expense-display works!</p>
+<div class='expenseMainPage'>
+  <div class="expenseCreation">
+    <div class="expenseInput">
+      <input type="text" class="expenseDescInput" placeholder="description" [(ngModel)]="description"/>
+      <input type="text" class="expenseDescInput" placeholder="type" [(ngModel)]="type"/>
+      <input type="text" class="expenseDescInput" placeholder="amount" [(ngModel)]="amount"/>
+      <input type="date" class="expenseDescInput" placeholder="date" [(ngModel)]="date"/>
+
+    </div>
+    <button mat-raised-button class="createBtn" (click)="create()">Create</button>
+  </div>
+
+  <div class="recordDisplay">
+    <ng-container *ngIf="!expenseRecordList.length">
+      <h1>No Record</h1>
+    </ng-container>
+    <ng-container *ngFor="let record of expenseRecordList">
+      <div class="recordItem">
+        <div>{{record.description}}</div>
+        <div>{{record.type}}</div>
+        <div>{{record.amount}}</div>
+        <div>{{record.date}}</div>
+        <button class= "deleteBtn" (click)="deleteRecord(record.id)">delete</button>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -12,7 +12,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import {GreetingComponent} from "./greeting/greeting.component";
-import { ExpenseCreationComponent } from './expense-creation/expense-creation.component';
 import { ExpenseDisplayComponent } from './expense-display/expense-display.component';
 
 @NgModule({
@@ -20,7 +19,6 @@ import { ExpenseDisplayComponent } from './expense-display/expense-display.compo
         AppComponent,
         CounterComponent,
         GreetingComponent,
-        ExpenseCreationComponent,
         ExpenseDisplayComponent
     ],
   imports: [

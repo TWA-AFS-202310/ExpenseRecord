@@ -32,7 +32,7 @@ public class ExpenseRecordController : ControllerBase
 
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteExpenseRecord(string id)
     {
         var success = await _service.DeleteExpenseRecord(id);
