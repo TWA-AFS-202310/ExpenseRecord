@@ -5,7 +5,7 @@ We are going to implement an expense record system for personal use.
 It’s used to record daily expenses, and do query, and deletion operations.
 The expense record includes the following information: description, type, amount, date
 For example: lunch, meal, 50, 20221010
-
+1
 AC1: 
 GIVEN there is no expense data, 
 WHEN user visits page, 
