@@ -5,7 +5,7 @@ namespace ExpenseRecord.services
     public interface IExpenseRecordService 
     {
         Task CreateRecord(ExpenseRecordDTO newRecord);
-        Task<List<ExpenseRecordDTO>> GetAll();
+        List<ExpenseRecordDTO> GetAll();
         public bool RemoveRecord(string id);
     }
 }

@@ -13,17 +13,22 @@ import { MatTableDataSource} from '@angular/material';
 export class TableComponent implements OnInit {
 
   constructor(private expenseService:ExpenseRecordService){}
-  public records?:Records[];
+  public records?:Records[] =  [{id:"1",amount:32,time:"111",description:"ss",type:"d"},{id:"1",amount:32,time:"111",description:"ss",type:"d"}];
   public inputReocrd:Records = {id:"1",amount:32,time:"111",description:"ss",type:"d"};
+  public counter:number = 0;
 
   ngOnInit(): void {
     this.expenseService.getAllRecords().subscribe(recordList =>{
-      this.records = [{id:"1",amount:32,time:"111",description:"ss",type:"d"},{id:"1",amount:32,time:"111",description:"ss",type:"d"}];
+      //this.records = [{id:"1",amount:32,time:"111",description:"ss",type:"d"},{id:"1",amount:32,time:"111",description:"ss",type:"d"}];
+      this.records = recordList;
+      console.log(recordList);
     });
   }
 
   addRecord(){
-    console.log("heelo",this.inputReocrd)
+    this.inputReocrd.id = this.counter.toString();
+    this.counter.toString();
+    this.counter +=1;
     this.expenseService.insertRecords(this.inputReocrd).subscribe();
   }
 

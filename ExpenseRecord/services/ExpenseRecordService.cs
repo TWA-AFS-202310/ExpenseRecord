@@ -29,9 +29,10 @@ namespace ExpenseRecord.services
             return true;
         }
 
-        public Task<List<ExpenseRecordDTO>> GetAll()
+        public List<ExpenseRecordDTO> GetAll()
         {
-            return Task.FromResult(_expenseRecords);
+
+            return _expenseRecords;
 
         }
 

@@ -1,10 +1,13 @@
 using ExpenseRecord.Models;
 using ExpenseRecord.services;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace ExpenseRecord.Controllers;
 
 [ApiController]
+[Produces("application/json")]
+
 [Route("[controller]")]
 public class GreetingController : ControllerBase
 {
@@ -18,9 +21,8 @@ public class GreetingController : ControllerBase
     [ProducesResponseType(typeof(List<ExpenseRecordDTO>), 200)]
     [ProducesResponseType(500)]
 
-    public ActionResult<ExpenseRecordDTO> GetAll()
+    public ActionResult<ExpenseRecordDTO> Get()
     {
-
         var records = _expenseRecordService.GetAll();
 
         return Ok(records);
@@ -43,7 +45,7 @@ public class GreetingController : ControllerBase
         return Created("", expenseRecordInput);
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     [ProducesResponseType(204)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
