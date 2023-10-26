@@ -26,8 +26,8 @@ export class ExpenseRecordService {
 }
 
 export interface ExpenseRecord {
-  Description: string;
-  Type: string;
-  Amount: number;
-  Date: string;
+  description: string;
+  type: string;
+  amount: number;
+  date: string;
 }

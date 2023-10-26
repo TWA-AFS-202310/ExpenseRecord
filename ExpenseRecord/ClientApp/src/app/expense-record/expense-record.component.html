@@ -5,10 +5,10 @@
 <div>
   <h3>Add Expense</h3>
   <form (ngSubmit)="addExpenseRecord({
-    Description: description.value,
-    Type: type.value,
-    Amount: parseAmount(amount.value),
-    Date: date.value
+    description: description.value,
+    type: type.value,
+    amount: parseAmount(amount.value),
+    date: date.value
   })">
     <label for="Description">Description:</label>
     <input type="text" id="Description" #description required>
@@ -32,11 +32,11 @@
   <h3>Expense Records</h3>
   <ul>
     <li *ngFor="let record of expenseRecords; let i = index">
-      <span><strong>Description:</strong> {{ record.Description }}</span>
-      <span><strong>Type:</strong> {{ record.Type }}</span>
-      <span><strong>Amount:</strong> {{ record.Amount }}</span>
-      <span><strong>Date:</strong> {{ record.Date }}</span>
-      <button (click)="deleteExpenseRecord(i)">Delete</button>
+      <span><strong>Description:</strong> {{ record.description }}</span>
+      <span><strong>Type:</strong> {{ record.type }}</span>
+      <span><strong>Amount:</strong> {{ record.amount }}</span>
+      <span><strong>Date:</strong> {{ record.date }}</span> 
+       <button (click)="deleteExpenseRecord(i)">Delete</button>
     </li>
   </ul>
 </div>

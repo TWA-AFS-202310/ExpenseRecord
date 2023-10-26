@@ -7,7 +7,11 @@ using System.Collections.Generic;
 [ApiController]
 public class ExpenseRecordController : ControllerBase
 {
-    private static List<ExpenseRecord> expenseRecords = new List<ExpenseRecord>();
+    private static List<ExpenseRecord> expenseRecords = new List<ExpenseRecord>(){
+        new ExpenseRecord{
+            Description ="ss",Type = "23", Amount = 22, Date="SS"
+        }
+    };
 
     [HttpGet]
     public ActionResult<IEnumerable<ExpenseRecord>> GetExpenseRecords()

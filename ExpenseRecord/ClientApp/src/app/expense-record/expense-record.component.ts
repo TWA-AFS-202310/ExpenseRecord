@@ -8,15 +8,20 @@ import { ExpenseRecord,ExpenseRecordService } from '../expense-record.service';
 })
 export class ExpenseRecordComponent implements OnInit{
   expenseRecords: ExpenseRecord[] = [];
-  constructor(private expenseRecordService: ExpenseRecordService) { }
+
+  constructor(private expenseRecordService: ExpenseRecordService) {
+    this.getExpenseRecords();
+
+   }
 
   ngOnInit(): void {
-    this.getExpenseRecords();
   }
 
   getExpenseRecords(): void {
     this.expenseRecordService.getExpenseRecords()
-      .subscribe(records => this.expenseRecords = records);
+      .subscribe(records => 
+        {this.expenseRecords = records;
+        console.log(this.expenseRecords)});
   }
 
   addExpenseRecord(expenseRecord: ExpenseRecord): void {
