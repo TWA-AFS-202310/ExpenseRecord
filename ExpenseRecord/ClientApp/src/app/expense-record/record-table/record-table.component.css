@@ -1,4 +1,4 @@
-.todo-table{
+.record-table{
     background-color: white;
 
     padding: 10px 10px 10px 10px;
@@ -21,22 +21,22 @@ table{
 }
 
 
-.todo-table th,
-.todo-table td {
+.record-table th,
+.record-table td {
     padding: 12px 15px;
     vertical-align: middle;
 }
 
-.todo-table tbody tr {
+.record-table tbody tr {
     border-bottom: 1px solid #dddddd; 
 }
 
-.todo-table tbody tr:nth-of-type(even) {
+.record-table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 
 
-.todo-table tbody tr :hover {
+.record-table tbody tr :hover {
     font-weight: bold;
     color: #a97ce8;
 }
@@ -97,7 +97,7 @@ input[type="checkbox"] {
     background-color: white;
 }
 
-.todo-table tbody tr  .isDone{
+.record-table tbody tr  .isDone{
     text-decoration: line-through #b3b1b1;
 }
 

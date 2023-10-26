@@ -16,8 +16,7 @@ import { ExpenseRecordModule } from './expense-record/expense-record.module';
     declarations: [
         AppComponent,
         CounterComponent,
-        GreetingComponent,
-        RecordTableComponent
+        GreetingComponent
     ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
