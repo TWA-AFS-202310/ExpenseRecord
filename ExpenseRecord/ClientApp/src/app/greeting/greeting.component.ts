@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-
+import { ExpenseRecordService } from '../service/expenseRecord.service';
 @Component({
   selector: 'app-greeting',
   templateUrl: './greeting.component.html',
@@ -10,25 +10,19 @@ export class GreetingComponent implements OnInit {
   name!: string;
   greeting!: string;
 
-  private baseUrl: string;
-  private http: HttpClient;
-
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    this.http = http;
-    this.baseUrl = baseUrl;
-  }
+  constructor(private expenseService:ExpenseRecordService){}
 
   ngOnInit(): void {
   }
 
   greet() {
-    this.callApi(this.name);
+    this.expenseService.getAllRecords().subscribe();
   }
-
+  /*
   callApi(name: string) {
-    this.http.get<string>(this.baseUrl + 'greeting?name=' + name, {responseType: 'text' as 'json'})
+    this.http.get<Any[]>(this.baseUrl, {responseType: 'text' as 'json'})
       .subscribe((result: string) => {
         this.greeting = result;
       }, (error: any) => console.error(error));
-  }
+  }*/
 }
