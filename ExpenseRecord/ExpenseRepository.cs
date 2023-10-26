@@ -21,7 +21,7 @@ public class ExpenseRepository : IExpenseRepository
 
     public void AddRecord(ExpenseRecord newRecord)
     {
-        expenseRecordList.Add(newRecord);
+        expenseRecordList.Insert(0, newRecord);
     }
 
     public void RemoveRecord(string id)
