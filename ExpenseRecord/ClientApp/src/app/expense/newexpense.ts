@@ -1,7 +1,7 @@
 export interface INewExpenseItem 
 {
-  Description: string;
-  Type:string;
-  Amount:number;
+  description: string;
+  type:string;
+  amount:number;
 
 }

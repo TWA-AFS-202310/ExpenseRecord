@@ -1,8 +1,8 @@
 export interface IExpenseItem 
 {
-  Id:string
-  Description: string;
-  Type:string;
-  Amount:number;
-  CreateTime: string;
+  id:string
+  description: string;
+  type:string;
+  amount:number;
+  createTime: Date;
 }

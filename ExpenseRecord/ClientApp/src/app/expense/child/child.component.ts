@@ -9,13 +9,14 @@ import { ExpenseService } from '../expense.service';
   styleUrls: ['./child.component.css']
 })
 export class ChildComponent implements OnInit {
+  selectedExpenseType: string ='';
   
 
   constructor(private route: ActivatedRoute,
     private router: Router,
     private expenseService:ExpenseService) { }
   public Description:string='';
-  public Type:string ="";
+  
   public Amount :number  =0;
   ngOnInit(): void {
   }
@@ -26,9 +27,9 @@ export class ChildComponent implements OnInit {
   save() {
     // if (!this.content) {
       const newItem: INewExpenseItem = {
-        Description: this.Description,
-        Type: this.Type,
-        Amount:this.Amount
+        description: this.Description,
+        type: this.selectedExpenseType,
+        amount:this.Amount
         
       }
       console.log(newItem)
