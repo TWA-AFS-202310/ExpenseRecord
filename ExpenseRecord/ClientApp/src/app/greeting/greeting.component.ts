@@ -10,23 +10,15 @@ export class GreetingComponent implements OnInit {
    
   expenses: Record[] = [];
   newExpense: Record = {
+    id: 1,
     description: '',
     type: '',
     amount: '',
     date: ''
   };
-
-  
   private baseUrl: string;
   private http: HttpClient;
   
-  
-
-  loadExpenses() {
-    this.http.get<Record[]>(this.baseUrl + 'greeting').subscribe(
-      (data: Record[]) => {this.expenses = data;
-    });
-  }
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.http = http;
@@ -36,28 +28,30 @@ export class GreetingComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  addExpense() {
-    if (this.newExpense.description && this.newExpense.type && this.newExpense.amount && this.newExpense.date) {
-     // this.expenses.unshift({ ...this.newExpense });
-     
-        
-    this.http.post(this.baseUrl + 'greeting', this.newExpense, { responseType: 'text' as 'json' })
-      .subscribe((result: Record[]) => {
+  loadExpenses() {
+    this.http.get<Record[]>(this.baseUrl + 'greeting').subscribe(
+      (result: Record[]) => {
         this.expenses = result;
-      }, (error: any) => console.error(error));
-        this.newExpense = {
-        description: '',
-        type: '',
-        amount: '',
-        date: ''
-      };
+    });
+  }
+  addExpense( newExpense : Record) {
+    if (this.newExpense.description && this.newExpense.type && this.newExpense.amount && this.newExpense.date) {
+        // newExpense = this.newExpense;
+      this.http.post(this.baseUrl + 'greeting', newExpense).subscribe(() => {
+        
+        this.loadExpenses();
+      });
+      
+     // this.http.post<Record>(this.baseUrl + 'greeting', item, { responseType: 'text' as 'json' })
+      //     .subscribe((result: Record) => {
+      //       this.items = result;
+      //     }, (error: any) => console.error(error));
+      // }
     }
   }
-
-  
-    deleteExpense(id: number) {
-      this.http.delete(`/api/expenses/${id}`).subscribe(() => {
+    deleteExpense(Id: number) {
+      console.log(Id);
+      this.http.delete(this.baseUrl + 'greeting/' + Id).subscribe(() => {
         this.loadExpenses();
       });
   }
@@ -69,9 +63,5 @@ export class GreetingComponent implements OnInit {
 
 
   // callApi(item : Record) {
-  //   this.http.post<Record>(this.baseUrl + 'greeting', item, { responseType: 'text' as 'json' })
-  //     .subscribe((result: Record) => {
-  //       this.items = result;
-  //     }, (error: any) => console.error(error));
-  // }
+  //   
 }

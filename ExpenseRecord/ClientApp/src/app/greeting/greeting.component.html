@@ -6,15 +6,15 @@
       <input [(ngModel)]="newExpense.type" placeholder="Type" />
       <input [(ngModel)]="newExpense.amount" placeholder="Amount" type="number" />
       <input [(ngModel)]="newExpense.date" placeholder="Date (YYYYMMDD)" />
-      <button (click)="addExpense()">Add</button>
+      <button (click)="addExpense(newExpense)">Add</button>
     </div>
   
     <h2>Expenses</h2>
     <a>Description - type - amount - date</a>
-    <ul>
+    <ul *ngIf="expenses.length > 0">
       <li *ngFor="let expense of expenses; let i = index">
-        {{ expense.description }}   {{ expense.type }}   {{ expense.amount }}   {{ expense.date }}
-        <button (click)="deleteExpense(i)">Delete</button>
+      {{ expense.description }}   {{ expense.type }}   {{ expense.amount }}   {{ expense.date }}
+        <button (click)="deleteExpense(expense.id)">Delete</button>
       </li>
     </ul>
   </div>

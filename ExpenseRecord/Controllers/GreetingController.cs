@@ -7,36 +7,31 @@ namespace ExpenseRecord.Controllers;
 [Route("[controller]")]
 public class GreetingController : ControllerBase
 {
-    [HttpGet]
-    public List<Record> greet(Record name)
-    {
-        
-        List<Record> result = new List<Record>();
-        result.Add(name);
-        return result;
-    }
+        private static List<Record> _expenses = new List<Record>(){
 
-        private static List<Record> _expenses = new List<Record>();
+        new Record {id = 0, description = "Expense 1", type = "Type 1", amount = "10", date = "1010" }
+       };
+        
         private static int _nextId = 1;
 
         [HttpGet]
-        public ActionResult<IEnumerable<Record>> Get()
-        {
+        public ActionResult<List<Record>> Get()
+        {   
             return _expenses;
         }
 
         [HttpPost]
-        public IActionResult Post(Record expense)
-        {
-            expense.Id = _nextId++;
-            _expenses.Insert(0, expense);
+        public IActionResult Post(Record newExpense)
+        {   Console.WriteLine("jinru");
+            newExpense.id = _nextId++;
+            _expenses.Insert(0, newExpense);
             return Ok();
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var expense = _expenses.FirstOrDefault(e => e.Id == id);
+            var expense = _expenses.FirstOrDefault(e => e.id == id);
             if (expense != null)
             {
                 _expenses.Remove(expense);

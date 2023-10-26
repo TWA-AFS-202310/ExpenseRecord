@@ -1,5 +1,5 @@
 export interface Record {
-    Id: number;
+    id: number;
     description: string;
     type: string;
     amount: string;
