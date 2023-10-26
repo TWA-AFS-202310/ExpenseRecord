@@ -1,9 +1,13 @@
+using ExpenseRecord.Utilities;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("ToDoItemDatabase"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -18,6 +22,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 
+app.UseSwagger();
+app.UseSwaggerUI();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
