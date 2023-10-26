@@ -1,11 +1,13 @@
-﻿using Microsoft.Extensions.Options;
-using MongoDB.Driver;
-
-namespace ExpenseRecord;
+﻿namespace ExpenseRecord;
 
 public class ExpenseService : IExpenseService
 {
-    private readonly ExpenseRepository _ExpenseCollection;
+    private readonly IExpenseRepository _ExpenseCollection;
+
+    public ExpenseService (IExpenseRepository expenseCollection)
+    {
+        _ExpenseCollection = expenseCollection;
+    }
 
     public void CreateExpense(ExpenseRecord expense)
     {

@@ -1,10 +1,4 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using System.Collections;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
-
-namespace ExpenseRecord;
+﻿namespace ExpenseRecord;
 
 public class ExpenseRecord
 {

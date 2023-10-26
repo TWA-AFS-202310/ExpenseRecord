@@ -2,7 +2,7 @@
 
 namespace ExpenseRecord;
 
-public class ExpenseRepository
+public class ExpenseRepository : IExpenseRepository
 {
     private List<ExpenseRecord> expenseRecordList = new List<ExpenseRecord>();
 

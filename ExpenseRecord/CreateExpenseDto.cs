@@ -1,7 +1,4 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson;
-
-namespace ExpenseRecord;
+﻿namespace ExpenseRecord;
 
 public class CreateExpenseDto
 {
