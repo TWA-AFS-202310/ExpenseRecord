@@ -11,33 +11,47 @@ export class ExpenseDisplayComponent implements OnInit {
   description: string = '';
   type: string = '';
   amount: number = 0;
-  date: string = "";
-  expenseRecordList: ExpenseRecord[] = []
+  date: string = '';
+  expenseRecordList: ExpenseRecord[] = [];
+  showWarning: boolean = false;
 
-  constructor(private service: ExpenseService) { }
+  constructor(private service: ExpenseService) {
+  }
 
   ngOnInit(): void {
     this.refresh();
   }
 
-  create(): void{
-    console.log(this.date);
-    const expenseItem: ExpenseCreationDto = {
-      description: this.description,
-      type: this.type,
-      amount: this.amount,
-      date: this.date
+  create(): void {
+    console.log(this.checkInValid());
+    if (this.checkInValid()) {
+      this.showWarning = true;
     }
-    this.service.createToDoItem(expenseItem).subscribe();
-    this.refresh();
+    else {
+      const expenseItem: ExpenseCreationDto = {
+        description: this.description,
+        type: this.type,
+        amount: this.amount,
+        date: this.date
+      };
+      this.service.createToDoItem(expenseItem).subscribe();
+      this.refresh();
+    }
   }
 
-  deleteRecord(id: string): void{
+  checkInValid(): boolean {
+    return (!this.description || !this.type|| this.amount <= 0 || !this.date);
+  }
+
+  deleteRecord(id: string): void {
     this.service.deleteToDoItem(id).subscribe();
     this.refresh();
   }
+
   refresh(): void {
+    this.showWarning = false;
     this.service.getAllToDoItem().subscribe(list => {
+      console.log(list)
       this.expenseRecordList = list;
     });
   }
