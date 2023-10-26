@@ -4,23 +4,26 @@
     <span class="text">type: {{expense.Type}}</span>
     <span class="text">amount: {{expense.Amount}}</span>
     <span class="text">date: {{expense.Date}}</span>
+    <button type="button" (click)="delete(expense.Description)">Delete</button>
   </li>
 </div>
 
 <div>
   <label>Description:</label>
-  <input>
+  <input #description>
 
   <label>Type:</label>
-  <input>
+  <input #type>
 
   <label>Amount:</label>
-  <input>
+  <input #amount>
 
   <label>Date:</label>
-  <input>
+  <input #date>
 </div>
 
 <div>
-  <button type="button" (click)="add()">button</button>
+  <button type="button"
+          (click)="add(description.value,type.value,amount.value,date.value);
+          description.value='';type.value='';amount.value='';date.value=''">Add</button>
 </div>

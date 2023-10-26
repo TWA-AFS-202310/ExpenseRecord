@@ -1,6 +1,6 @@
 export interface Expense {
   Description: string;
   Type: string;
-  Amount: number;
+  Amount: string;
   Date: string;
 }
