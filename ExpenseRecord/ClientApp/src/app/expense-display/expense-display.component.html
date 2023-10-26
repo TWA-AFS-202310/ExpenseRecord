@@ -23,7 +23,7 @@
 
     </div>
     <button mat-raised-button class="createBtn" (click)="create()">Create</button>
-    <span class="warning" *ngIf="showWarning"> Please fill all fields</span>
+    <span class="warning" *ngIf="showWarning"> Please fill all fields (amount should not be 0)</span>
   </div>
 
   <div class="recordDisplayContainer">
@@ -36,12 +36,11 @@
         <div class="recordItem">
           <label class="recordValue">{{record.description}}</label>
           <label class="recordValue">{{record.type}}</label>
-          <label class="recordValue">￥{{record.amount}}</label>
+          <label class="recordValue">${{record.amount}}</label>
           <label class="recordValue">{{record.date}}</label>
           <button class="deleteBtn" (click)="deleteRecord(record.id)">delete</button>
         </div>
       </ng-container>
     </div>
-    <button class = "createBtn" (click)="refresh()"> refresh</button>
   </div>
 </div>

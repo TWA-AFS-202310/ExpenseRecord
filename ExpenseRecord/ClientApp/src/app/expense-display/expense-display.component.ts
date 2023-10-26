@@ -26,32 +26,31 @@ export class ExpenseDisplayComponent implements OnInit {
     console.log(this.checkInValid());
     if (this.checkInValid()) {
       this.showWarning = true;
-    }
-    else {
+    } else {
       const expenseItem: ExpenseCreationDto = {
         description: this.description,
         type: this.type,
         amount: this.amount,
         date: this.date
       };
-      this.service.createToDoItem(expenseItem).subscribe();
+      this.service.createToDoItem(expenseItem).subscribe(_ => this.refresh());
       this.refresh();
     }
   }
 
   checkInValid(): boolean {
-    return (!this.description || !this.type|| this.amount <= 0 || !this.date);
+    return (!this.description || !this.type || this.amount <= 0 || !this.date);
   }
 
   deleteRecord(id: string): void {
-    this.service.deleteToDoItem(id).subscribe();
-    this.refresh();
+    this.service.deleteToDoItem(id).subscribe(_ => this.refresh());
+
   }
 
   refresh(): void {
     this.showWarning = false;
     this.service.getAllToDoItem().subscribe(list => {
-      console.log(list)
+      console.log(list);
       this.expenseRecordList = list;
     });
   }

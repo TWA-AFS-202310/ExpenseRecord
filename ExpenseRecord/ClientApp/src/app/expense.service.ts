@@ -9,10 +9,11 @@ import { ExpenseCreationDto, ExpenseRecord } from './expense.type';
 export class ExpenseService {
   baseURL: string = '/ExpenseRecord';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   getAllToDoItem(): Observable<ExpenseRecord[]> {
-    return this.httpClient.get<ExpenseRecord[]>(this.baseURL).pipe(tap(_ => console.log('getAll')));;
+    return this.httpClient.get<ExpenseRecord[]>(this.baseURL).pipe(tap(_ => console.log('getAll')));
   }
 
   createToDoItem(expenseCreationDto: ExpenseCreationDto): Observable<ExpenseRecord> {
@@ -20,9 +21,6 @@ export class ExpenseService {
   }
 
   deleteToDoItem(id: string): Observable<string> {
-    return this.httpClient.delete<string>(`${this.baseURL}/${id}`).pipe(tap(_ => console.log('delete', id)));;
-    // const index = this.toDoItemList.findIndex(item => item.id === id);
-    // this.toDoItemList.splice(index,1);
+    return this.httpClient.delete<string>(`${this.baseURL}/${id}`).pipe(tap(_ => console.log('delete', id)));
   }
-
 }
