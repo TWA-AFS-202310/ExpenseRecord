@@ -51,7 +51,7 @@ export class ExpenseDisplayComponent implements OnInit {
     this.showWarning = false;
     this.service.getAllToDoItem().subscribe(list => {
       console.log(list);
-      this.expenseRecordList = list;
+      this.expenseRecordList = list.reverse();
     });
   }
 }
