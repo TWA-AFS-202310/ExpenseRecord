@@ -1,0 +1,83 @@
+h2 {
+  text-align: center;
+}
+
+.expenseMainPage {
+  display: flex;
+  flex-direction: row;
+}
+
+.expenseCreation {
+  border: solid 0.5px lightgray;
+  border-radius: 10px;
+  margin: 10px;
+  width: 30%;
+}
+
+.expenseInputGroup {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  padding: 10px;
+  width: 90%;
+}
+
+.expenseInputField {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  justify-content: space-between;
+}
+
+
+.recordDisplayContainer {
+  border: solid 0.5px lightgray;
+  border-radius: 10px;
+  margin: 10px;
+  width: 60%;
+  height: 700px;
+  row-gap: 5px;
+}
+
+.recordDisplay {
+  margin: 10px;
+  min-height: 600px;
+  row-gap: 5px;
+  overflow: auto;
+}
+
+.recordItem {
+  height: 30px;
+  border: solid 0.1px lightgray;
+  border-bottom-width: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2% 2% 2% 0%;
+  position: relative;
+}
+
+.createBtn {
+  background: dodgerblue;
+  color: white;
+  margin: 10px;
+}
+
+.deleteBtn {
+  background: darkred;
+  color: white;
+}
+
+.recordValue {
+  width: 25%;
+  height: 30px;
+  overflow: hidden;
+  display: flex;
+  border-right: 0.1px solid lightgray;
+  justify-content: flex-start;
+  padding: 5px;
+}
+
+span {
+  color: red;
+}
